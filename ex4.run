@@ -1,0 +1,47 @@
+#!/bin/bash
+ 
+#SBATCH --ntasks 4
+
+## --cpus-per-task > 1 needed for multithreaded applications
+#SBATCH --cpus-per-task 1
+
+## maximum memory needed
+#SBATCH --mem 4096
+
+## maximum walltime needed
+#SBATCH --time 00:05:00
+
+echo
+echo STARTING AT `date`
+echo
+
+# bash is not my default shell? I have to initialize it!
+. /etc/bashrc
+
+module purge 
+module load intelmpi/4.1.3
+module list
+echo
+
+#LAUNCH_DIR=/scratch/scitas-ge/jmenu
+LAUNCH_DIR=/home/jmenu/COURS
+
+#EXECUTABLE="./ex4_c"
+#EXECUTABLE="./ex4_cxx"
+EXECUTABLE="./ex4_f90"
+
+echo "--> LAUNCH_DIR = ${LAUNCH_DIR}"
+echo "--> EXECUTABLE = ${EXECUTABLE}"
+echo
+
+echo "--> ${EXECUTABLE} depends on the following dynamic libraries:"
+ldd ${EXECUTABLE}
+echo
+
+cd ${LAUNCH_DIR}
+
+srun ${EXECUTABLE}
+echo
+
+echo FINISHED at `date`
+echo

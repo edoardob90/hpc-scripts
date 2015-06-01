@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#SBATCH -D /scratch/benchmarks/linpack_11.1.1/benchmarks/linpack/
+#SBATCH -N1
+#SBATCH -n 1
+#SBATCH -c 16
+#SBATCH --mem 64000
+#SBATCH --time 12:00:00
+
+#SBATCH -o energy-%j.%N
+
+echo "running on: "
+hostname
+echo "--------------------------------------------------"
+srun ./runme_1_45k

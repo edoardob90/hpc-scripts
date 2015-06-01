@@ -1,0 +1,15 @@
+#!/bin/bash
+ 
+#SBATCH --ntasks 1 
+#SBATCH --cpus-per-task 1
+#SBATCH --nodes 1
+#SBATCH --mem 4096
+#SBATCH --time 00:05:00
+ 
+echo STARTING AT `date`
+
+module purge 
+module load matlab/R2014b
+matlab -nosplash -nodisplay -nodesktop -r my_function
+ 
+echo FINISHED at `date`
