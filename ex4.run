@@ -2,10 +2,10 @@
  
 #SBATCH --ntasks 4
 
-## --cpus-per-task > 1 needed for multithreaded applications
+## cpus-per-task > 1 needed for multithreaded applications
 #SBATCH --cpus-per-task 1
 
-## maximum memory needed
+## maximum memory needed in MB
 #SBATCH --mem 4096
 
 ## maximum walltime needed
@@ -19,16 +19,17 @@ echo
 . /etc/bashrc
 
 module purge 
+module load intel/14.0.1
 module load intelmpi/4.1.3
 module list
 echo
 
-#LAUNCH_DIR=/scratch/scitas-ge/jmenu
-LAUNCH_DIR=/home/jmenu/COURS
+#LAUNCH_DIR=/scratch/<group>/<username>
+LAUNCH_DIR=/home/topf/test
 
-#EXECUTABLE="./ex4_c"
+EXECUTABLE="./ex4_c"
 #EXECUTABLE="./ex4_cxx"
-EXECUTABLE="./ex4_f90"
+#EXECUTABLE="./ex4_f90"
 
 echo "--> LAUNCH_DIR = ${LAUNCH_DIR}"
 echo "--> EXECUTABLE = ${EXECUTABLE}"
@@ -45,3 +46,4 @@ echo
 
 echo FINISHED at `date`
 echo
+

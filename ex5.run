@@ -19,16 +19,17 @@ echo
 . /etc/bashrc
 
 module purge 
+module load intel/14.0.1
 module load intelmpi/4.1.3
 module list
 echo
 
-#LAUNCH_DIR=/scratch/scitas-ge/jmenu
-LAUNCH_DIR=/home/jmenu/COURS
+#LAUNCH_DIR=/scratch/<group>/<username>
+LAUNCH_DIR=/home/topf/test
 
-#EXECUTABLE="./ex5_c"
+EXECUTABLE="./ex5_c"
 #EXECUTABLE="./ex5_cxx"
-EXECUTABLE="./ex5_f90"
+#EXECUTABLE="./ex5_f90"
 
 echo "--> LAUNCH_DIR = ${LAUNCH_DIR}"
 echo "--> EXECUTABLE = ${EXECUTABLE}"
