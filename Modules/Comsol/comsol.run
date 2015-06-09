@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#SBATCH --nodes 1
+#SBATCH --ntasks 16
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 10240
+
+module purge
+module load comsol/5.0
+
+srun comsol batch -inputfile in.mph -outputfile out.mph -job b1 -batchlog out.log
+

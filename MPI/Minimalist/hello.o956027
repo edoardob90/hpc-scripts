@@ -1,0 +1,25 @@
+================================= Prologue ===================================
+ 
+--> PBSPro prologue for 956027.bellatrix (rezzonic, mathicse) ran on  Tue May  6 22:38:58 CEST 2014
+
+--> Nodes file contents:
+b101.cluster
+b101.cluster
+
+--> NODE = b101.cluster
+============================ End of prologue ================================
+
+Hello from process 0 of 2
+Hello from process 1 of 2
+
+=================================== Epilogue ================================
+ 
+--> PBSPro epilogue for rezzonic's 956027.bellatrix (group mathicse) ran on  Tue May  6 22:39:01 CEST 2014
+
+--> Nodes used: b101.cluster 
+
+
+--> NODE = b101.cluster
+--> USER = rezzonic
+
+============================= End of epilogue ===============================
