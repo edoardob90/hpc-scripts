@@ -1,0 +1,2 @@
+slurmstepd: execve(): /home/rezzonic/Examples/scitas-examples/Pi_mc/./pi_mc: No such file or directory
+srun: error: b093: task 0: Exited with exit code 2
