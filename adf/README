@@ -1,0 +1,14 @@
+# Written by Daniel Jana (2015-06-16)
+
+This test is ready to submit to the nodes with the file:
+job.adf.slurm
+
+It's a simple test that will run in a few seconds.
+
+It produces a file called:
+test.out
+
+WARNING: Currently, due to licensing issues, ADF only runs on Bellatrix.
+If needed, it can run on Deneb, but since the need hasn't arisen up, I
+haven't contacted the company. So, the job will run only in Bellatrix, not
+on Deneb.
