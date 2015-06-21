@@ -1,0 +1,30 @@
+#!/bin/bash
+
+#SBATCH --nodes 2
+#SBATCH --ntasks-per-node 4
+
+## cpus-per-task > 1 needed for multithreaded applications
+#SBATCH --cpus-per-task 1
+
+## maximum memory needed in MB
+#SBATCH --mem 4096
+
+## maximum walltime needed
+#SBATCH --time 00:05:00
+
+echo
+echo STARTING AT `date`
+echo
+
+module purge 
+module load intel intelmpi
+module list
+echo
+
+echo "*** C ***"
+srun ./hello_c
+echo "*** FORTRAN ***"
+srun ./hello_f90
+echo "*** C++ ***"
+srun ./hello_cxx
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 1096
+#SBATCH --time 00:10:00
+
+#SBATCH --array=1-8
+
+srun ./hello.sh ${SLURM_ARRAY_TASK_ID}
+
+

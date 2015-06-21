@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#SBATCH --nodes 2
+#SBATCH --ntasks-per-node 4
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 16000
+#SBATCH --time 00:30:00
+
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=Vittoria.Rezzonico@epfl.ch
+
+module purge
+module load intel/14.0.1 intelmpi/5.0.1
+
+HPL=/ssoft/intel/14.0.1/RH6/all/x86_E5v2/mkl/benchmarks/mp_linpack/bin_intel/intel64/xhpl_intel64
+
+srun $HPL
+
+

@@ -1,0 +1,15 @@
+# Written by Daniel Jana (2015-06-16)
+
+This test is ready to submit to the nodes with the file:
+job.amber.slurm
+
+It's a simple test that will run in a few minutes.
+
+It runs locally to the nodes by using SLURM_TMPDIR and rsyncing
+the files before submitting the job. As such, there's no output
+during the job.
+It produces a file called:
+md.out
+
+with some stats. It also produces a trajectory file:
+AAAT.1.trj
