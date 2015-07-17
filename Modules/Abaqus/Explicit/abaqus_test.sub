@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH --job-name Abaqus
+#SBATCH --nodes 2
+#SBATCH --ntasks-per-node 2
+#SBATCH --cpus-per-task 4
+#SBATCH --time 00:10:00
+ 
+module purge
+module load intel/14.0.1 intelmpi/4.1.3 abaqus/6.14-1/intel-14.0.1
+
+# Generating the node list from the SLURM variables
+cpus_per_node=$(echo $SLURM_TASKS_PER_NODE | sed -e 's/(x[0-9])//')
+if [ "x${SLURM_CPUS_PER_TASK}" != "x" ]; then
+   cpus_per_node=$(( ${cpus_per_node} * ${SLURM_CPUS_PER_TASK} ))
+fi
+
+nodes_list=""
+for i in $(scontrol show hostnames | sort -u); do
+   if [ "x${nodes_list}" != "x" ]; then
+      nodes_list="${nodes_list},"
+   fi
+   nodes_list="${nodes_list}['$i',${cpus_per_node}]"
+done
+
+mp_host_list="[${nodes_list}]"
+
+cat <<EOF >> abaqus_v6.env
+mp_host_list=${mp_host_list}
+EOF
+
+total_nb_cpus=$(( ${cpus_per_node} * ${SLURM_NNODES} ))
+
+echo CPUS=$total_nb_cpus NODES=$mp_host_list
+
+abaqus inter cpus=$total_nb_cpus j=discbrake_3d_xpl
