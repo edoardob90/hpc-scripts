@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#SBATCH --nodes 1 
+#SBATCH --ntasks 16
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 4096
+#SBATCH --time 00:55:00
+#SBATCH --partition debug
+ 
+echo STARTING AT `date`
+
+module purge 
+module load paraview/4.3.1/gcc-4.4.7
+
+PVCLIENT=128.178.10.131 
+
+srun pvserver --use-offscreen-rendering -rc -ch=${PVCLIENT}
+echo FINISHED at `date`

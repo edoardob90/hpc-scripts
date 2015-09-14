@@ -1,0 +1,42 @@
+HOWTO run ParaView on the EPFL Central Facilities
+-------------------------------------------------
+
+
+1. Prerequisites
+
+You should download the Paraview binary installer for your machine. The binary must match the version installed on the cluster.
+
+http://www.paraview.org/download/
+
+These instructions only work if you are within the EPFL network. If you are not, please use the VPN. You will need to find out your IP address and insert it in the paraview.run file.
+
+Your data will need to be on the clusters (where it is supposed to be).
+
+You will need to have the server running before connecting with the client.
+
+2. Client configuration
+
+On your machine, launch the client and configure it as a client as follows:
+
+ - click File -> connect
+ - Add server: enter the name of the cluster (for example bellatrix.epfl.ch) and choose Server Type Client / Server (reverse connection)
+ - in the advanced options, Choose Startup Type: Manual
+
+3. Server configuration
+
+Modify the paraview.run file to suit your needs. In particular, make sure you:
+ - set the PVCLIENT variable to your client IP address
+ - load the module corresponding to the correct version
+
+run sbatch paraview.run
+
+4. Connect with the client
+
+Run the example:
+Load the data with File -> Open
+Apply the D31 load balancing filter
+Apply the "Process Id Scalars" filter
+Show usage with Show -> memory inspector
+
+You should now have something similar to the paraview.png picture in this folder.
+ 
