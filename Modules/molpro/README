@@ -1,0 +1,12 @@
+# Written by Daniel Jana (2015-09-15)
+
+This test is ready to submit to the nodes with the file:
+job.molpro.slurm
+
+It's a simple test that will run in a few seconds.
+Alternatively, a more real-case test is available with: test_big.inp
+The job.molpro.slurm has to be adjusted to use that file and that job
+should run in around 5 minutes.
+
+It produces two files called:
+test.[out,xml] (test_big.[out,xml])

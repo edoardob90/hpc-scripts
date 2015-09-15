@@ -1,0 +1,22 @@
+ Electronic minimization
+   PREC = HIGH
+   GGA = 91
+   IALGO = 48
+   ISYM = 0
+   ISPIN = 2
+   LREAL = Auto
+   NELM = 300
+   EDIFF = 1E-5
+Ionic relaxation
+   EDIFFG = 1E-4
+   NSW    = 0
+   IBRION = 2
+   POTIM  = 0.5
+DOS related values
+   ISMEAR = 2 ; SIGMA=0.2
+   NPAR = 1
+Energy values for adsorption comparison
+   ENMAX = 395.994
+   LVTOT =.TRUE.
+   IDIPOL = 3
+   RWIGS = 1.43 1.0

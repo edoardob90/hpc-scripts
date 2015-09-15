@@ -1,0 +1,9 @@
+# Written by Daniel Jana (2015-09-15)
+
+This test is ready to submit to the nodes with the file:
+job.vasp.slurm
+
+VASP needs several files as input with specific names (INCAR,
+KPOINTS, ...) as such it needs to be run as one job per directory.
+
+It produces several files and should run in about 20 minutes.
