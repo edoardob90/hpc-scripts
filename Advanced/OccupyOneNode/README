@@ -1,0 +1,4 @@
+On Bellatrix and Deneb, one full node is allocated to a job.
+
+If you need to split the node among different jobs, you will need to use a trick, which is described in this example.
+
