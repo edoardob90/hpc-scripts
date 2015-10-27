@@ -1,0 +1,13 @@
+Author: Jean-Luc Desbiolles (2015-10-27)
+
+Submit the job with the command:
+sbatch job.fluent.slurm
+
+Input files:
+fluent-test.cas
+fluent-test.jou
+
+Output files:
+fluent-test.cas (its content will change)
+fluent-test.dat
+fluent-test.log
