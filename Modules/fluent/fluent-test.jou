@@ -2,7 +2,13 @@
 ; file read-case-data fluent-test
 file read-case fluent-test
 solve initialize hyb-initialization
-solve iterate 300
+solve iterate 100
+file write-case-data fluent-test
+yes
+solve iterate 100
+file write-case-data fluent-test
+yes
+solve iterate 100
 file write-case-data fluent-test
 yes
 exit

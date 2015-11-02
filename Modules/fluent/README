@@ -11,3 +11,10 @@ Output files:
 fluent-test.cas (its content will change)
 fluent-test.dat
 fluent-test.log
+
+Comments:
+ - The input file (here fluent-test.jou) contains
+   the appropriate Fluent text commands (TUI).
+ - The case file (here fluent-test.cas) should have
+   been created through interactive run of Fluent
+   on a PC or on the front-end of the cluster.
