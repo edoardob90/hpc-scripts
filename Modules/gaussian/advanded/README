@@ -1,0 +1,8 @@
+Those are more advanced submissions scripts
+
+job.gaussian-timeout.slurm :
+  This script allows you to trigger a copie of the *.chk files at a given time
+  before the jobs timeout
+  The line --signal=B:USR1:120 indicates how many seconds before the and of the
+  job the signal to copy files should be send. In this example it is 120s
+  before the end
