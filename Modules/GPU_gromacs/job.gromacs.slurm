@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH -J Gromacs
 #SBATCH -N 1
 #SBATCH --cpus-per-task=1

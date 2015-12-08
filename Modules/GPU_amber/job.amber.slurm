@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH -J amber
 #SBATCH --mem=32000
 #SBATCH --nodes=1

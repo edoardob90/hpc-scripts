@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -l 
 #SBATCH -J cp2k
 #SBATCH --mem=18000
 #SBATCH --nodes=1

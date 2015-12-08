@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH -J adf
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
