@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH -J gaussian
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8

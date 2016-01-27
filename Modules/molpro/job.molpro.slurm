@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -l 
 #SBATCH -J molpro_test
 #SBATCH --mem=32000
 #SBATCH --nodes=1

@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -l 
 #SBATCH -J vasp-test
 #SBATCH --mem=18000
 #SBATCH --nodes=1

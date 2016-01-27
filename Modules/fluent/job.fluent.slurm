@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 #SBATCH --job-name fluent_test
 #SBATCH --nodes 1
 #SBATCH --ntasks 16
