@@ -7,7 +7,7 @@
 #SBATCH --time 00:30:00
 
 #SBATCH --mail-type=ALL
-#SBATCH --mail-user=Vittoria.Rezzonico@epfl.ch
+#SBATCH --mail-user=user.name@epfl.ch
 
 module purge
 module load intel/14.0.1 intelmpi/5.0.1
