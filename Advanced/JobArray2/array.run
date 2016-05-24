@@ -1,0 +1,19 @@
+#!/bin/bash -l
+
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 1
+#SBATCH --cpus-per-task 1
+#SBATCH --mem 1096
+#SBATCH --time 00:10:00
+
+#SBATCH --array=1-8
+
+N=${SLURM_ARRAY_TASK_ID}
+ 
+x=`head -n ${N} parameters.txt | tail -n 1 | cut -d' ' -f1`
+y=`head -n ${N} parameters.txt | tail -n 1 | cut -d' ' -f2`
+z=`head -n ${N} parameters.txt | tail -n 1 | cut -d' ' -f3`
+
+srun ./hello.sh $x $y $z
+
+
