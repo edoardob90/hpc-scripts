@@ -12,7 +12,10 @@
 ## maximum walltime needed
 #SBATCH --time 00:05:00
 
+source /ssoft/spack/bin/slmodules.sh
+
 module purge 
+# load the compiler and MPI variant used to generate the executable
 module load intel intelmpi
 
 # compiled with mpiicc hello_mpi.c -o hello_mpi

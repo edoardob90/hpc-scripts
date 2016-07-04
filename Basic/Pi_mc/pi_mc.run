@@ -4,7 +4,14 @@
 #SBATCH --ntasks             1
 #SBATCH --cpus-per-task      1
 
-# compile with gcc pi_mc.c -o pi_mc
+# compile with:
+# source /ssoft/spack/bin/slmodules.sh
+# module load gcc
+# gcc pi_mc.c -o pi_mc
+
+source /ssoft/spack/bin/slmodules.sh
+
+module load gcc
 
 srun ./pi_mc
 

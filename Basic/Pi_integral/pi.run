@@ -5,7 +5,14 @@
 #SBATCH --ntasks             1
 #SBATCH --cpus-per-task      16
 
-# compile with gcc -lpthread -lm pi.c -o pi
+# compile with:
+# source /ssoft/spack/bin/slmodules.sh
+# module load gcc
+# gcc -lpthread -lm pi.c -o pi
+
+source /ssoft/spack/bin/slmodules.sh
+
+module load gcc
 
 srun ./pi 1024 16
 
