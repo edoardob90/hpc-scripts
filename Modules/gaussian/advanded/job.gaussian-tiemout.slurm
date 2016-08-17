@@ -6,6 +6,8 @@
 #SBATCH --time=00:10:00
 ##SBATCH --signal=B:USR1@120
 
+module purge
+slmodules -r deprecated
 module load gaussian/g09/D.01
 
 trap 'kill -s USR1 $PID' SIGUSR1
