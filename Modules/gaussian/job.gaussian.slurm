@@ -6,7 +6,7 @@
 #SBATCH --time=0:10:00
 
 module purge
-slmodules -r deperecated
+slmodules -r deprecated
 module load gaussian/g09/D.01
 
 g09_run test.inp > test.out
