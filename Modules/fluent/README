@@ -8,9 +8,8 @@ fluent-test.cas
 fluent-test.jou
 
 Output files:
-fluent-test.cas (its content will change)
+fluent-test.cas (its content changes)
 fluent-test.dat
-fluent-test.log
 
 Comments:
  - The input file (here fluent-test.jou) contains
@@ -18,3 +17,6 @@ Comments:
  - The case file (here fluent-test.cas) should have
    been created through interactive run of Fluent
    on a PC or on the front-end of the cluster.
+ - job.fluent.slurm -> 1 node / 16 processors
+   job2.fluent.slurm -> 2 nodes / 32 processors
+

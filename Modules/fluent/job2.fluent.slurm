@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #SBATCH --job-name fluent_test
-#SBATCH --nodes 1
-#SBATCH --ntasks 16
+#SBATCH --nodes 2
+#SBATCH --ntasks 32
 #SBATCH --cpus-per-task 1
 #SBATCH --ntasks-per-node 16
 #SBATCH --mem 4000
@@ -14,8 +14,11 @@ date
 echo "================================================================"
 echo ""
 
-# run Fluent 3d double precision without GUI on 1 node using 16 processors
-fluent 3ddp -g -t${SLURM_NTASKS} -ssh -i fluent-test.jou
+HOSTS_FILE=hostlist-job${SLURM_JOB_ID}
+srun hostname | sort > ${HOSTS_FILE}
+
+# run Fluent 3d double precision without GUI on 2 nodes using 32 processors
+fluent 3ddp -g -t${SLURM_NTASKS} -ssh -i fluent-test.jou -cnf=${HOSTS_FILE}
 
 STATUS=$?
 
