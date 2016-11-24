@@ -1,12 +1,14 @@
 #!/bin/bash -l
 
+# Example of script file to run Comsol on one node and 16 cores
+
 #SBATCH --nodes 1
 #SBATCH --ntasks-per-node 16
 #SBATCH --cpus-per-task 1
 #SBATCH --mem 10240
 
 module purge
-module load comsol/5.0
+module load comsol
 
-srun comsol batch -inputfile in.mph -outputfile out.mph -job b1 -batchlog out.log
+comsol batch -np ${SLURM_NTASKS_PER_NODE} -inputfile in.mph -outputfile out.mph -batchlog out.log
 
