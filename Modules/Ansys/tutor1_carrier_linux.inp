@@ -1,0 +1,181 @@
+/title, carrier model - 0.5 MILLION DOF's
+/prep7
+!/filename,carr
+!!!!!!!!!!!  you may change the value of meshsize in the integer range
+!!!!!!!!!!!  from (1 to 9) to create a mesh from ( very very fine to very very
+!!!!!!!!!!!  coarse) or medium fine, etc.
+meshsize = 4    ! not used
+size1 = 0.4      ! .4 creates 167,000 nodes
+!!!!!!!!!!!!!!! you have used ANSYS smart meshing sizing control 
+! mopt,vmes,rv52
+shpp,off
+FLST,3,6,8  
+FITEM,3,0.2,0,0 
+FITEM,3,0.2,0.4,0   
+FITEM,3,0.5,0.4,0   
+FITEM,3,0.5,0.2,0   
+FITEM,3,1.3,0.2,0   
+FITEM,3,1.3,0,0 
+K, ,P51X
+FLST,2,6,3  
+FITEM,2,1   
+FITEM,2,6   
+FITEM,2,5   
+FITEM,2,4   
+FITEM,2,3   
+FITEM,2,2   
+A,P51X  
+LFILLT,4,3,.1, ,
+FLST,2,3,4  
+FITEM,2,7   
+FITEM,2,8   
+FITEM,2,9   
+AL,P51X 
+FLST,2,2,5,ORDE,2   
+FITEM,2,1   
+FITEM,2,-2  
+AADD,P51X   
+FLST,3,2,8  
+FITEM,3,0,0.4,0 
+FITEM,3,0,0.6,0 
+K, ,P51X
+FLST,2,1,5,ORDE,1   
+FITEM,2,3   
+FLST,8,2,3  
+FITEM,8,4   
+FITEM,8,9   
+VROTAT,P51X, , , , , ,P51X, ,360, , 
+KWPLAN,-1,      28,      14,      21
+KWPAVE,      28 
+CYL4,0.2,0,0.15, , , ,-0.75 
+CSYS,1  
+FLST,3,1,6,ORDE,1   
+FITEM,3,5   
+VGEN,6,P51X, , , ,60, , ,0  
+FLST,2,5,6,ORDE,2   
+FITEM,2,6   
+FITEM,2,-10 
+VDELE,P51X, , ,1
+VDELE,       5, , ,1
+CYL4,0.3,0,0.2, , , ,-0.8   
+LOCAL,11,1,-2.26893498542e-10,0.2,0, ,-90, ,1,1,
+FLST,3,1,6,ORDE,1   
+FITEM,3,5   
+VGEN,6,P51X, , , ,60, , ,0  
+FLST,2,4,6,ORDE,2   
+FITEM,2,1   
+FITEM,2,-4  
+VADD,P51X   
+FLST,3,6,6,ORDE,2   
+FITEM,3,5   
+FITEM,3,-10 
+VSBV,      11,P51X  
+LSEL,S,LOC,Z,.2 
+CSYS,0  
+LSEL,S,LOC,Z,.2 
+LSEL,S,LOC,Y,.2 
+CSYS,11,
+L,      69,      61 
+L,      67,      59 
+FLST,2,1,4,ORDE,1   
+FITEM,2,10  
+LDIV,P51X,.3, ,2,0  
+FLST,2,1,4,ORDE,1   
+FITEM,2,12  
+LDIV,P51X,0.3, ,2,0 
+FLST,2,2,4,ORDE,2   
+FITEM,2,38  
+FITEM,2,40  
+LDIV,P51X,.49, ,2,0 
+FLST,2,2,4,ORDE,2   
+FITEM,2,38  
+FITEM,2,57  
+LCOMB,P51X, ,0  
+FLST,2,2,4,ORDE,2   
+FITEM,2,40  
+FITEM,2,58  
+LCOMB,P51X, ,0  
+FLST,2,2,4,ORDE,2   
+FITEM,2,38  
+FITEM,2,40  
+LDIV,P51X,4/7, ,2,0 
+LARC,31,32,68,.5,   
+LARC,33,34,62,.5,   
+FLST,2,4,4,ORDE,4   
+FITEM,2,10  
+FITEM,2,12  
+FITEM,2,57  
+FITEM,2,-58 
+LDELE,P51X  
+LFILLT,38,59,.05, , 
+LFILLT,38,60,0.05, ,
+LFILLT,60,40,0.05, ,
+LFILLT,40,59,0.05, ,
+FLST,2,8,4  
+FITEM,2,38  
+FITEM,2,10  
+FITEM,2,59  
+FITEM,2,58  
+FITEM,2,40  
+FITEM,2,57  
+FITEM,2,60  
+FITEM,2,12  
+AL,P51X 
+VSEL,ALL
+ASEL,ALL
+LSEL,ALL
+KSEL,ALL
+CSYS,0  
+FLST,2,1,5,ORDE,1   
+FITEM,2,4   
+VEXT,P51X, , ,0,-0.2,0,,,,  
+CSYS,11,
+FLST,3,1,6,ORDE,1   
+FITEM,3,2   
+VGEN,6,P51X, , , ,60, , ,0  
+FLST,3,6,6,ORDE,2   
+FITEM,3,2   
+FITEM,3,-7  
+VSBV,       1,P51X  
+RPR4,7,1.3,0,0.25,270,0.5   
+VSBV,       8,       1  
+CSYS,0  
+WPAVE,0,0,0 
+CSYS,11 
+wpof,,,0.100000 
+wpof,,,0.100000 
+TORUS,.05, ,.7,30,60,   
+VDELE,       1, , ,1
+TORUS,0.05, ,0.7,10,80, 
+CSYS,11,
+FLST,3,1,6,ORDE,1   
+FITEM,3,1   
+VGEN,4,P51X, , , ,90, , ,0  
+FLST,3,4,6,ORDE,3   
+FITEM,3,1   
+FITEM,3,3   
+FITEM,3,-5  
+VSBV,       2,P51X  
+TORUS,0.02, ,1,0,360,   
+VSBV,       6,       1  
+et,1,92 
+DESIZE,1,1,100,20,20, ,.15*size1
+smrt,meshsize
+vmesh,all   
+mp,ex,1,30e6
+mp,nuxy,1,.33
+mp,dens,1,.00073
+!save,carrtry00,db
+finish
+/solu
+!!!!!!!!!apply your material property and boundary condition and loading here
+!!!!!!!!! next line means output everything including stresses
+acel,,386.4
+!
+asel,s,area,,56
+asel,a,area,,65,67
+nsla,s,1
+d,all,all
+nall
+asel,all
+outres,all,all

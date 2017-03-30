@@ -1,0 +1,7 @@
+
+script-1.sh runs the Distributed Memory Parallel
+version of Ansys on 1 node and 16 cores
+
+Submit the job with the command:
+sbatch script-1.sh
+
