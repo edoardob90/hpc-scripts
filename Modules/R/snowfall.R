@@ -10,9 +10,6 @@ library(snowfall)
 
 ncpus <- Sys.getenv('SLURM_CPUS_ON_NODE')
 
-# we are running in parallel.
-# This will take by default all the available cores on a node
-
 sfInit(parallel=TRUE, cpus=ncpus, type="SOCK")
 
 sfStop()
