@@ -11,6 +11,6 @@ echo STARTING AT `date`
 module purge 
 module load intel mkl
 module load R
-./easyscript.R
+srun R CMD BATCH ./easyscript.R
  
 echo FINISHED at `date`
