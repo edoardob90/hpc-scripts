@@ -10,9 +10,9 @@
 #SBATCH --mail-user=user.name@epfl.ch
 
 module purge
-module load intel/14.0.1 intelmpi/5.0.1
+module load intel/16.0.3 intelmpi/5.1.3
 
-HPL=/ssoft/intel/14.0.1/RH6/all/x86_E5v2/mkl/benchmarks/mp_linpack/bin_intel/intel64/xhpl_intel64
+HPL=/ssoft/intel/2016/RH6/all/x86_E5v2/mkl/benchmarks/mp_linpack/bin_intel/intel64/xhpl_intel64
 
 srun $HPL
 
