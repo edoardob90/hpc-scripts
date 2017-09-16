@@ -1,0 +1,5 @@
+slurm-*.out
+*.RData
+*.Rdata
+*.Rout
+*_spark_master
