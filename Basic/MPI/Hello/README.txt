@@ -4,7 +4,7 @@ To compile the hello_*.* source files:
 
 Then, either:
 
-  module load intel intelmpi
+  module load intel intel-mpi
 
   mpiicc -o hello_c hello.c
   mpiicpc -o hello_cxx hello.cxx
@@ -43,7 +43,7 @@ salloc: Granted job allocation 43196
 
 > source /ssoft/spack/bin/slmodules.sh
 
-> module load intel intelmpi
+> module load intel intel-mpi
 
 # or
 # module load gcc mvapich2
@@ -74,7 +74,7 @@ The result should be something similar to
 > cat slurm-43198.out 
 
 Currently Loaded Modules:
-  1) intel/16.0.3   2) intelmpi/5.1.3
+  1) intel/17.0.2   2) intel-mpi/2017.2.174
 
 
 *** C ***

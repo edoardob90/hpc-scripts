@@ -6,7 +6,7 @@
 #SBATCH --mem 24000
 #SBATCH --time 00:10:00
 
-module load matlab/R2014b
+module load matlab
 
 sleep 20
 

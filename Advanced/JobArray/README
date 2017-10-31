@@ -1,5 +1,5 @@
 Job arrays are useful to launch parameter sweeps for example.
-They are most useful on Aries and Castor, where allocations are made on a by-core basis.
+They are most useful on Castor, where allocations are made on a by-core basis.
 
 For an example on other cluster, please see the FakeJobArray example.
 

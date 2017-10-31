@@ -9,7 +9,7 @@
 # SBATCH --array=1-729
 #SBATCH --array=1-8
 
-module load matlab/R2014b
+module load matlab
 
 sleep 20
 

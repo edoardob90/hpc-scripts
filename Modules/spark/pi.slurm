@@ -11,7 +11,7 @@
 #  hanging indefinitely with status CG (completing) when calling scancel!
 #SBATCH --time=00:30:00
 
-module load spark/2.0.2
+module load spark
 
 
 echo "---- starting $0 on $HOSTNAME"

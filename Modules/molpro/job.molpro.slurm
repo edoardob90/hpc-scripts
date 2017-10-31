@@ -4,7 +4,10 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=0:10:00
-module load molpro/2012.1.22/intel-15.0.2_intelmpi
+
+source /ssoft/spack/bin/slmodules.sh -r deprecated
+
+module load intel intelmpi mkl molpro
 molpro test_big.inp
 joberror=$?
 

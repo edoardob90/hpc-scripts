@@ -1,5 +1,5 @@
- CP_GROUPS: we are using a 1 x 16 grid (groups x nprocs).
- PROGRAM CPMD STARTED AT: Tue Sep 15 13:36:41 2015  
+ cp_groups: we are using a 1 x 16 grid (groups x nprocs).
+ PROGRAM CPMD STARTED AT: 2017-10-17 12:13:49.304   
  SETCNST| USING: CODATA 2006 UNITS
 
 
@@ -12,10 +12,7 @@
               *******  **        **      **  *******  
                ******  **        **      **  ******   
 
-                          VERSION 3.15.3
-
-
-                COMPILED WITH GROMOS-AMBER QM/MM SUPPORT
+                          VERSION 4.1-rUnversioned directory
 
                             COPYRIGHT
                       IBM RESEARCH DIVISION
@@ -27,88 +24,96 @@
                      E-mail: cpmd@cpmd.org
 
 
-                  ***  Feb  6 2015 -- 09:16:11  ***
+                  ***  Sep 20 2017 -- 17:34:45  ***
 
  THE INPUT FILE IS:                                      test.inp
- THIS JOB RUNS ON:                                     r02-node02
+ THIS JOB RUNS ON:                                           f104
  THE CURRENT DIRECTORY IS: 
- /scratch/sb-it/ddossant/git/scitas-examples/Modules/cpmd-notddft
+                    /home/desbiolles/scitas-examples/Modules/cpmd
  THE TEMPORARY DIRECTORY IS: 
-                                                      /tmp/231461
- THE PROCESS ID IS:                                         17695
- THE JOB WAS SUBMITTED BY:                                   root
+                                                      /tmp/206400
+ THE PROCESS ID IS:                                         19296
+ THE JOB WAS SUBMITTED BY:                               desbioll
  
 
  ******************************************************************************
  **                              INPUT FILE                                  ** 
  ******************************************************************************
- ** &CPMD                                                                    ** 
- **   WAVEFUNCTION OPTIMIZATION                                              ** 
- **   RESTART GEOFILE NORESTART                                              ** 
- **   CONVERGENCE ORBITALS                                                   ** 
- **   1.0D-7                                                                 ** 
- **   RESTFILE                                                               ** 
- **   1                                                                      ** 
- **   MIRROR                                                                 ** 
- ** &END                                                                     ** 
- ** &DFT                                                                     ** 
- **   NEWCODE                                                                ** 
- **   FUNCTIONAL PBE                                                         ** 
- **   LR KERNEL PBE                                                          ** 
- ** &END                                                                     ** 
- ** &SYSTEM                                                                  ** 
- **    ANGSTROM                                                              ** 
- **    POISSON SOLVER TUCKERMAN                                              ** 
- **    SYMMETRY                                                              ** 
- **    0                                                                     ** 
- **    CELL ABSOLUTE                                                         ** 
- **    16.0 16.0 10.0  0.0 0.0 0.0                                           ** 
- **    CUTOFF                                                                ** 
- **    40.0                                                                  ** 
- ** &END                                                                     ** 
- ** &ATOMS                                                                   ** 
- ** *C_MT_PBE KLEINMAN-BYLANDER                                              ** 
- **   LMAX=P                                                                 ** 
- **   13                                                                     ** 
- **   0.9237 -1.0601 0.0027                                                  ** 
- **   2.0843 -1.8649 -0.0002                                                 ** 
- **   3.3579 -1.2699 0.0043                                                  ** 
- **   3.4828 0.1309 0.0057                                                   ** 
- **   2.3334 0.9497 -0.0005                                                  ** 
- **   1.0508 0.3566 0.0062                                                   ** 
- **   -1.3303 0.6109 0.0068                                                  ** 
- **   -1.5130 -0.7988 -0.0015                                                ** 
- **   -0.3700 -1.6250 -0.0035                                                ** 
- **   -2.8217 -1.3293 -0.0085                                                ** 
- **   -2.4522 1.4648 0.0085                                                  ** 
- **   -3.7522 0.9240 0.0022                                                  ** 
- **   -3.9356 -0.4707 -0.0064                                                ** 
- ** *O_MT_PBE KLEINMAN-BYLANDER                                              ** 
- **   LMAX=P                                                                 ** 
- **   1                                                                      ** 
- **   2.4589 2.2037 -0.0187                                                  ** 
- ** *N_MT_PBE KLEINMAN-BYLANDER                                              ** 
- **   LMAX=P                                                                 ** 
- **   1                                                                      ** 
- **   -0.0723 1.1264 0.0099                                                  ** 
- ** *H_MT_PBE KLEINMAN-BYLANDER                                              ** 
- **   LMAX=S                                                                 ** 
- **   9                                                                      ** 
- **   4.4160 0.5501 0.0090                                                   ** 
- **   4.1945 -1.8581 0.0031                                                  ** 
- **   2.0132 -2.8854 -0.0071                                                 ** 
- **   -0.4797 -2.6435 -0.0110                                                ** 
- **   -2.9737 -2.3414 -0.0151                                                ** 
- **   -4.8799 -0.8615 -0.0101                                                ** 
- **   -4.5657 1.5438 0.0039                                                  ** 
- **   -2.3319 2.4803 0.0134                                                  ** 
- **   1.6418 2.8287 -0.0150                                                  ** 
- ** &END                                                                     ** 
+ ** &CPMD                                                                     **
+ **   ELECTRONIC SPECTRA                                                      **
+ **   RESTART GEOFILE NORESTART                                               **
+ **   CONVERGENCE ORBITALS                                                    **
+ **   1.0D-7                                                                  **
+ **   RESTFILE                                                                **
+ **   1                                                                       **
+ **   MIRROR                                                                  **
+ ** &END                                                                      **
+ ** &TDDFT                                                                    **
+ **   TAMM-DANCOFF                                                            **
+ **   STATES SINGLET                                                          **
+ **   3                                                                       **
+ **   DAVIDSON PARAMETER                                                      **
+ **   9000 1.D-8 20                                                           **
+ **   DAVIDSON RDIIS                                                          **
+ **   1000 1000 1.D-8                                                         **
+ ** &END                                                                      **
+ ** &DFT                                                                      **
+ **   NEWCODE                                                                 **
+ **   FUNCTIONAL PBE                                                          **
+ **   LR KERNEL PBE                                                           **
+ ** &END                                                                      **
+ ** &SYSTEM                                                                   **
+ **    ANGSTROM                                                               **
+ **    POISSON SOLVER TUCKERMAN                                               **
+ **    SYMMETRY                                                               **
+ **    0                                                                      **
+ **    CELL ABSOLUTE                                                          **
+ **    16.0 16.0 10.0  0.0 0.0 0.0                                            **
+ **    CUTOFF                                                                 **
+ **    60.0                                                                   **
+ ** &END                                                                      **
+ ** &ATOMS                                                                    **
+ ** *C_MT_PBE KLEINMAN-BYLANDER                                               **
+ **   LMAX=P                                                                  **
+ **   13                                                                      **
+ **   0.9237 -1.0601 0.0027                                                   **
+ **   2.0843 -1.8649 -0.0002                                                  **
+ **   3.3579 -1.2699 0.0043                                                   **
+ **   3.4828 0.1309 0.0057                                                    **
+ **   2.3334 0.9497 -0.0005                                                   **
+ **   1.0508 0.3566 0.0062                                                    **
+ **   -1.3303 0.6109 0.0068                                                   **
+ **   -1.5130 -0.7988 -0.0015                                                 **
+ **   -0.3700 -1.6250 -0.0035                                                 **
+ **   -2.8217 -1.3293 -0.0085                                                 **
+ **   -2.4522 1.4648 0.0085                                                   **
+ **   -3.7522 0.9240 0.0022                                                   **
+ **   -3.9356 -0.4707 -0.0064                                                 **
+ ** *O_MT_PBE KLEINMAN-BYLANDER                                               **
+ **   LMAX=P                                                                  **
+ **   1                                                                       **
+ **   2.4589 2.2037 -0.0187                                                   **
+ ** *N_MT_PBE KLEINMAN-BYLANDER                                               **
+ **   LMAX=P                                                                  **
+ **   1                                                                       **
+ **   -0.0723 1.1264 0.0099                                                   **
+ ** *H_MT_PBE KLEINMAN-BYLANDER                                               **
+ **   LMAX=S                                                                  **
+ **   9                                                                       **
+ **   4.4160 0.5501 0.0090                                                    **
+ **   4.1945 -1.8581 0.0031                                                   **
+ **   2.0132 -2.8854 -0.0071                                                  **
+ **   -0.4797 -2.6435 -0.0110                                                 **
+ **   -2.9737 -2.3414 -0.0151                                                 **
+ **   -4.8799 -0.8615 -0.0101                                                 **
+ **   -4.5657 1.5438 0.0039                                                   **
+ **   -2.3319 2.4803 0.0134                                                   **
+ **   1.6418 2.8287 -0.0150                                                   **
+ ** &END                                                                      **
  ******************************************************************************
  ******************************************************************************
 
- SINGLE POINT DENSITY OPTIMIZATION
-
+ CALCULATE ELECTRONIC SPECTRA 
  USING SEED       123456 TO INIT. PSEUDO RANDOM NUMBER GEN.
  PATH TO THE RESTART FILES:                                    ./
  RESTART FROM FILE GEOMETRY
@@ -134,7 +139,7 @@
  EXCHANGE CORRELATION FUNCTIONALS 
     LDA EXCHANGE:                                            NONE
     LDA XC THROUGH PADE APPROXIMATION
-    S.GOEDECKER, J.HUTTER, M.TETER PRB 54 1703 (1996)
+    S.GOEDECKER, J.HUTTER, M.TETER PRB 541703 (1996)
     GRADIENT CORRECTED FUNCTIONAL
     DENSITY THRESHOLD:                                1.00000E-08
     EXCHANGE ENERGY
@@ -142,13 +147,13 @@
     CORRELATION ENERGY 
        [PBE: J.P. PERDEW ET AL. PRL 77, 3865 (1996)]
  
- ***     DETSP| SIZE OF THE PROGRAM IS   39900/ 412896 kBYTES ***
+ ***     DETSP| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
 
  >>>>>>>> CENTER OF MASS HAS BEEN MOVED TO CENTER OF BOX <<<<<<<<
 
 
  ***************************** ATOMS ****************************
-   NR   TYPE        X(bohr)        Y(bohr)        Z(bohr)     MBL
+   NR   TYPE        X(BOHR)        Y(BOHR)        Z(BOHR)     MBL
     1      C      16.863337      13.114543       9.453732       3
     2      C      19.056554      11.593691       9.448251       3
     3      C      21.463309      12.718078       9.456755       3
@@ -294,35 +299,35 @@
 
  PARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARA
   NCPU     NGW     NHG  PLANES  GXRAYS  HXRAYS ORBITALS Z-PLANES
-     0    2305   18443       8     114     454       2       1
-     1    2307   18439       8     114     454       2       1
-     2    2307   18443       8     114     454       3       1
-     3    2309   18395       8     113     453       2       1
-     4    2309   18453       8     114     454       2       1
-     5    2301   18443       8     114     454       2       1
-     6    2305   18453       8     114     454       3       1
-     7    2305   18447       8     114     454       2       1
-     8    2303   18453       8     114     454       2       1
-     9    2303   18445       8     114     454       2       1
-    10    2296   18453       8     112     454       3       1
-    11    2300   18449       8     112     454       2       1
-    12    2300   18457       8     112     454       2       1
-    13    2302   18467       8     112     454       2       1
-    14    2306   18463       8     112     454       3       1
-    15    2308   18474       8     112     456       2       1
-                G=0 COMPONENT ON PROCESSOR :     3
+     0    4233   33889       9     170     682       2       1
+     1    4235   33895      10     170     682       2       1
+     2    4235   33891       9     170     682       3       1
+     3    4239   33897       9     170     682       2       1
+     4    4237   33905      10     170     682       2       1
+     5    4237   33907       9     170     682       2       1
+     6    4241   33901      10     170     682       3       1
+     7    4237   33901       9     170     682       2       1
+     8    4243   33903       9     170     682       2       1
+     9    4246   33901      10     172     682       2       1
+    10    4246   33909       9     172     682       3       1
+    11    4244   33911       9     172     682       2       1
+    12    4244   33907      10     172     682       2       1
+    13    4245   33846       9     171     683       2       1
+    14    4242   33914      10     172     684       3       1
+    15    4242   33910       9     172     684       2       1
+                G=0 COMPONENT ON PROCESSOR :    13
  PARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARAPARA
 
- ***LOADPA| SIZE OF THE PROGRAM IS   53104/ 417552 kBYTES ***
+ ***    loadpa| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
 
  OPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPEN
  NUMBER OF CPUS PER TASK                                        1
  OPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPENMPOPEN
 
- ***RGGEN| SIZE OF THE PROGRAM IS   53744/ 418188 kBYTES ***
+ ***     rggen| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
 
  ************************** SUPERCELL ***************************
- THIS IS AN ISOLATED SYSTEM CALCULATION 
+ THIS IS AN ISOLATED SYSTEM CALCULATION
  POISSON EQUATION SOLVER  :                   TUCKERMAN & MARTYNA
  SHORT RANGE POTENTIAL LENGTH * BOX LENGTH                  7.000
  SYMMETRY:                                           ORTHORHOMBIC
@@ -335,16 +340,16 @@
  RECIP. LAT. VEC. B1(2Pi/BOHR):      0.0331     0.0000     0.0000
  RECIP. LAT. VEC. B2(2Pi/BOHR):      0.0000     0.0331     0.0000
  RECIP. LAT. VEC. B3(2Pi/BOHR):      0.0000     0.0000     0.0529
- REAL SPACE MESH:                   128          128           80
- WAVEFUNCTION CUTOFF(RYDBERG):                           40.00000
- DENSITY CUTOFF(RYDBERG):          (DUAL= 4.00)         160.00000
- NUMBER OF PLANE WAVES FOR WAVEFUNCTION CUTOFF:             36866
- NUMBER OF PLANE WAVES FOR DENSITY CUTOFF:                 295177
+ REAL SPACE MESH:                   150          150           96
+ WAVEFUNCTION CUTOFF(RYDBERG):                           60.00000
+ DENSITY CUTOFF(RYDBERG):          (DUAL= 4.00)         240.00000
+ NUMBER OF PLANE WAVES FOR WAVEFUNCTION CUTOFF:             67846
+ NUMBER OF PLANE WAVES FOR DENSITY CUTOFF:                 542387
  ****************************************************************
  
- ***  RINFORCE| SIZE OF THE PROGRAM IS   56052/ 421220 kBYTES ***
- ***    FFTPRP| SIZE OF THE PROGRAM IS   56688/ 419064 kBYTES ***
- ***   CLUSTER| SIZE OF THE PROGRAM IS   66724/ 422856 kBYTES ***
+ ***  RINFORCE| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ***    FFTPRP| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ***   CLUSTER| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
 
  GENERATE ATOMIC BASIS SET
       C        SLATER ORBITALS
@@ -360,16 +365,44 @@
         1S        ALPHA=   1.0000      OCCUPATION= 1.00
  
 
- INITIALIZATION TIME:                                0.70 SECONDS
+ INITIALIZATION TIME:                                1.18 SECONDS
 
- ***    WFOPTS| SIZE OF THE PROGRAM IS   66964/ 437992 kBYTES ***
+
+ *********************** LINEAR RESPONSE ************************
+ Step size for numeric dmu/dn :                         0.500E-03
+ Number of calculations for dmu/dn :                            2
+ Maximum number of optimisation steps:                       1000
+ Threshold for Hessian (Preconditioner)                    0.5000
+ Optimizer for LR equations                             AUTOMATIC
+                    Size of ODIIS buffer                       10
+                    Size of ZDIIS buffer                        4
+                    SWITCH FROM PCG TO ODIIS AT        0.1000E+00
+                    Switch to full preconditioning at  0.1000E-02
+ Step length                                               0.1000
+ Convergence criteria                                  0.1000E-04
+ Parallel-transport gauge for response functions
+ ****************************************************************
+
+ ***************************  TDDFT  ****************************
+ Step size for numeric dmu/dn :                         0.500E-03
+ Number of calculations for dmu/dn :                            2
+ Tamm-Dancoff Approximation 
+ Diagonalization Method                                  DAVIDSON
+          Max. number of iterations                          9000
+          Convergence criteria                          0.100E-07
+          Max. size of Davidson matrix                         20
+          RDIIS Parameters
+          NTDIISMAX=1000      NRESTDMAX=1000  RDIISTIN= 0.100E-07
+ Number of Singlet States                                       3
+ Forces calculated for state                                    1
+ ****************************************************************
 
  ATOMIC COORDINATES AND VELOCITIES READ FROM FILE GEOMETRY
 
- ***     PHFAC| SIZE OF THE PROGRAM IS   67140/ 445028 kBYTES ***
+ ***     PHFAC| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
  NOTE: ATOMIC GUESS USING DISTRIBUTED LINALG WITH LANCZOS
- ***    ATOMWF| SIZE OF THE PROGRAM IS   68012/ 447512 kBYTES ***
- ATRHO| CHARGE(R-SPACE):   72.000000      (G-SPACE):   72.000000
+ ***    ATOMWF| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ATRHO| CHARGE(R-SPACE):   72.000000 (G-SPACE):   72.000000
 
  ATOMIC COORDINATES AND VELOCITIES READ FROM FILE GEOMETRY
 
@@ -403,150 +436,267 @@
       24       H          16.394000      17.087511      11.959212
  ****************************************************************
 
- 
- TIME FOR WAVEFUNCTION INITIALIZATION:               0.88 SECONDS
- ***    RWFOPT| SIZE OF THE PROGRAM IS   81084/ 452516 kBYTES ***
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ================================================================
+ ==                        REFERENCE POINT                     ==
+ ================================================================
  EWALD| SUM IN REAL SPACE OVER                      1* 1* 1 CELLS
 
  TOTAL INTEGRATED ELECTRONIC DENSITY
     IN G-SPACE =                                    72.0000000000
     IN R-SPACE =                                    72.0000000000
 
- (K+E1+L+N+X)           TOTAL ENERGY =         -102.30320205 A.U.
- (K)                  KINETIC ENERGY =           66.88009685 A.U.
- (E1=A-S+R)     ELECTROSTATIC ENERGY =          -86.60003450 A.U.
+ (K+E1+L+N+X)           TOTAL ENERGY =         -102.98793831 A.U.
+ (K)                  KINETIC ENERGY =           68.34058668 A.U.
+ (E1=A-S+R)     ELECTROSTATIC ENERGY =          -86.46483559 A.U.
  (S)                           ESELF =           92.42162829 A.U.
  (R)                             ESR =            4.53297944 A.U.
- (L)    LOCAL PSEUDOPOTENTIAL ENERGY =          -65.18397519 A.U.
- (N)      N-L PSEUDOPOTENTIAL ENERGY =           13.28429102 A.U.
- (X)     EXCHANGE-CORRELATION ENERGY =          -30.68358024 A.U.
-          GRADIENT CORRECTION ENERGY =           -0.40775833 A.U.
+ (L)    LOCAL PSEUDOPOTENTIAL ENERGY =          -66.95414610 A.U.
+ (N)      N-L PSEUDOPOTENTIAL ENERGY =           12.92034790 A.U.
+ (X)     EXCHANGE-CORRELATION ENERGY =          -30.82989119 A.U.
+          GRADIENT CORRECTION ENERGY =           -0.41373468 A.U.
  
  NFI      GEMAX       CNORM           ETOT        DETOT      TCPU
-   1  3.064E-02   3.239E-03    -102.303202    0.000E+00      0.56
-   2  3.506E-02   1.145E-03    -103.944801   -1.642E+00      0.32
-   3  1.141E-02   6.640E-04    -104.171072   -2.263E-01      0.31
-   4  1.135E-02   3.426E-04    -104.238467   -6.740E-02      0.29
-   5  7.377E-03   2.301E-04    -104.261224   -2.276E-02      0.29
-   6  3.633E-03   1.800E-04    -104.273241   -1.202E-02      0.30
-   7  3.010E-03   1.461E-04    -104.281760   -8.519E-03      0.29
-   8  2.379E-03   1.118E-04    -104.290249   -8.489E-03      0.30
-   9  1.762E-03   8.068E-05    -104.297461   -7.212E-03      0.30
-  10  1.284E-03   6.060E-05    -104.301789   -4.328E-03      0.30
-  11  9.481E-04   4.843E-05    -104.304271   -2.481E-03      0.30
-  12  7.916E-04   3.977E-05    -104.305770   -1.499E-03      0.30
-  13  6.753E-04   3.250E-05    -104.306859   -1.089E-03      0.30
-  14  5.814E-04   2.671E-05    -104.307654   -7.953E-04      0.30
-  15  4.910E-04   2.201E-05    -104.308241   -5.865E-04      0.30
-  16  3.620E-04   1.677E-05    -104.308775   -5.348E-04      0.30
-  17  2.988E-04   1.276E-05    -104.309055   -2.793E-04      0.30
-  18  2.211E-04   9.452E-06    -104.309194   -1.399E-04      0.30
-  19  1.554E-04   6.891E-06    -104.309261   -6.631E-05      0.30
-  20  1.089E-04   5.080E-06    -104.309289   -2.818E-05      0.30
-  21  7.203E-05   3.634E-06    -104.309304   -1.460E-05      0.30
-  22  5.331E-05   2.616E-06    -104.309311   -7.330E-06      0.30
-  23  3.476E-05   1.958E-06    -104.309314   -3.451E-06      0.30
-  24  2.296E-05   1.459E-06    -104.309316   -2.003E-06      0.30
-  25  1.794E-05   1.102E-06    -104.309317   -1.108E-06      0.30
-  26  1.344E-05   8.211E-07    -104.309318   -6.597E-07      0.30
-  27  1.045E-05   6.108E-07    -104.309319   -3.823E-07      0.30
-  28  8.706E-06   4.683E-07    -104.309319   -1.980E-07      0.30
-  29  7.895E-06   3.747E-07    -104.309319   -9.923E-08      0.30
-  30  7.430E-06   3.090E-07    -104.309319   -6.111E-08      0.30
-  31  6.385E-06   2.609E-07    -104.309319   -4.098E-08      0.30
-  32  5.007E-06   2.234E-07    -104.309319   -3.239E-08      0.30
-  33  4.493E-06   1.924E-07    -104.309319   -2.743E-08      0.30
-  34  3.861E-06   1.649E-07    -104.309319   -2.353E-08      0.30
-  35  3.147E-06   1.384E-07    -104.309319   -2.104E-08      0.30
-  36  2.470E-06   1.137E-07    -104.309319   -1.619E-08      0.30
-  37  1.900E-06   9.232E-08    -104.309319   -1.101E-08      0.30
-  38  1.495E-06   7.547E-08    -104.309319   -6.649E-09      0.30
-  39  1.195E-06   6.235E-08    -104.309319   -3.969E-09      0.30
-  40  9.367E-07   5.166E-08    -104.309319   -2.608E-09      0.30
-  41  7.336E-07   4.235E-08    -104.309319   -1.833E-09      0.30
-  42  6.727E-07   3.399E-08    -104.309319   -1.274E-09      0.30
-  43  4.977E-07   2.685E-08    -104.309319   -8.171E-10      0.30
-  44  3.881E-07   2.094E-08    -104.309319   -4.936E-10      0.30
-  45  2.803E-07   1.642E-08    -104.309319   -2.736E-10      0.30
-  46  2.214E-07   1.296E-08    -104.309319   -1.543E-10      0.30
-  47  1.870E-07   1.034E-08    -104.309319   -8.595E-11      0.30
-  48  1.431E-07   8.373E-09    -104.309319   -5.184E-11      0.30
-  49  1.199E-07   6.926E-09    -104.309319   -3.357E-11      0.30
-  50  1.028E-07   5.829E-09    -104.309319   -2.434E-11      0.30
-  51  8.647E-08   4.938E-09    -104.309319   -1.833E-11      0.30
+   1  2.236E-02   2.874E-03    -102.987938    0.000E+00      0.67
+   2  2.208E-02   9.210E-04    -104.786686   -1.799E+00      0.55
+   3  1.439E-02   5.004E-04    -104.966735   -1.800E-01      0.55
+   4  1.043E-02   2.475E-04    -105.023717   -5.698E-02      0.56
+   5  7.451E-03   1.383E-04    -105.040311   -1.659E-02      0.56
+   6  3.651E-03   1.012E-04    -105.046670   -6.359E-03      0.55
+   7  2.221E-03   7.997E-05    -105.050800   -4.129E-03      0.56
+   8  1.698E-03   6.238E-05    -105.054509   -3.710E-03      0.56
+   9  1.300E-03   4.601E-05    -105.057774   -3.265E-03      0.56
+  10  9.515E-04   3.392E-05    -105.059896   -2.122E-03      0.57
+  11  7.136E-04   2.632E-05    -105.061211   -1.315E-03      0.56
+  12  5.612E-04   2.125E-05    -105.061988   -7.764E-04      0.56
+  13  4.767E-04   1.729E-05    -105.062473   -4.856E-04      0.56
+  14  4.222E-04   1.438E-05    -105.062820   -3.470E-04      0.56
+  15  3.674E-04   1.205E-05    -105.063082   -2.623E-04      0.56
+  16  2.864E-04   9.518E-06    -105.063325   -2.422E-04      0.56
+  17  2.063E-04   7.319E-06    -105.063480   -1.553E-04      0.56
+  18  1.487E-04   5.488E-06    -105.063557   -7.748E-05      0.56
+  19  1.163E-04   4.120E-06    -105.063595   -3.719E-05      0.56
+  20  8.605E-05   3.060E-06    -105.063612   -1.713E-05      0.56
+  21  6.457E-05   2.181E-06    -105.063621   -9.054E-06      0.56
+  22  4.295E-05   1.542E-06    -105.063625   -4.575E-06      0.56
+  23  2.823E-05   1.147E-06    -105.063627   -2.001E-06      0.56
+  24  1.875E-05   8.734E-07    -105.063628   -1.101E-06      0.56
+  25  1.503E-05   6.687E-07    -105.063629   -6.379E-07      0.56
+  26  1.149E-05   5.005E-07    -105.063629   -4.114E-07      0.56
+  27  8.924E-06   3.807E-07    -105.063630   -2.269E-07      0.56
+  28  6.632E-06   2.941E-07    -105.063630   -1.333E-07      0.56
+  29  5.301E-06   2.359E-07    -105.063630   -6.595E-08      0.56
+  30  5.203E-06   1.935E-07    -105.063630   -4.080E-08      0.56
+  31  5.201E-06   1.626E-07    -105.063630   -2.708E-08      0.56
+  32  3.760E-06   1.400E-07    -105.063630   -1.981E-08      0.56
+  33  3.444E-06   1.204E-07    -105.063630   -1.798E-08      0.56
+  34  3.066E-06   1.031E-07    -105.063630   -1.528E-08      0.57
+  35  2.576E-06   8.674E-08    -105.063630   -1.361E-08      0.56
+  36  2.109E-06   7.155E-08    -105.063630   -1.048E-08      0.56
+  37  1.684E-06   5.841E-08    -105.063630   -7.260E-09      0.56
+  38  1.347E-06   4.768E-08    -105.063630   -4.431E-09      0.56
+  39  1.072E-06   3.899E-08    -105.063630   -2.710E-09      0.56
+  40  8.564E-07   3.199E-08    -105.063630   -1.752E-09      0.56
+  41  6.716E-07   2.645E-08    -105.063630   -1.148E-09      0.56
+  42  5.034E-07   2.173E-08    -105.063630   -8.085E-10      0.56
+  43  4.773E-07   1.764E-08    -105.063630   -5.433E-10      0.56
+  44  3.657E-07   1.405E-08    -105.063630   -3.566E-10      0.56
+  45  2.661E-07   1.107E-08    -105.063630   -2.175E-10      0.56
+  46  1.988E-07   8.795E-09    -105.063630   -1.227E-10      0.56
+  47  1.819E-07   7.078E-09    -105.063630   -7.071E-11      0.56
+  48  1.582E-07   5.779E-09    -105.063630   -4.110E-11      0.56
+  49  1.120E-07   4.766E-09    -105.063630   -2.703E-11      0.56
+  50  8.796E-08   3.972E-09    -105.063630   -1.941E-11      0.56
 
  RESTART INFORMATION WRITTEN ON FILE                  ./RESTART.1
- ***    RWFOPT| SIZE OF THE PROGRAM IS  100740/ 458552 kBYTES ***
 
- ****************************************************************
- *                                                              *
- *                        FINAL RESULTS                         *
- *                                                              *
- ****************************************************************
-
- ****************************************************************
- *                      ATOMIC COORDINATES                      *
- ****************************************************************
-       1       C          16.418639      13.467500       5.904009
-       2       C          18.851609      12.489064       5.205212
-       3       C          20.891028      12.748585       6.790540
-       4       C          20.749469      14.090867       9.160415
-       5       C          18.473730      15.150186       9.937391
-       6       C          16.280692      14.800700       8.350878
-       7       C          12.231729      16.294523       7.573211
-       8       C          12.162329      15.058853       5.045969
-       9       C          14.183430      13.512814       4.371849
-      10       C          10.039312      15.515079       3.452950
-      11       C          10.191559      17.930777       8.261749
-      12       C           8.170723      18.374616       6.653896
-      13       C           8.066023      17.200165       4.185334
-      14       O          18.219221      16.611693      12.045734
-      15       N          14.153852      15.939128       9.243993
-      16       H          22.520404      14.403594      10.193259
-      17       H          22.717450      11.994012       6.095400
-      18       H          19.009766      11.545827       3.359631
-      19       H          13.806967      12.342276       2.728206
-      20       H          10.130244      14.815511       1.513966
-      21       H           6.521308      17.363111       2.833903
-      22       H           6.746399      19.817257       7.046504
-      23       H          10.251316      18.717751      10.232940
-      24       H          16.394000      17.087511      11.959212
- ****************************************************************
-
- 
- ****************************************************************
-
- 
- ELECTRONIC GRADIENT:
-    MAX. COMPONENT =    8.64662E-08         NORM =    4.93766E-09
-
- TOTAL INTEGRATED ELECTRONIC DENSITY
-    IN G-SPACE =                                    72.0000000000
-    IN R-SPACE =                                    72.0000000000
-
- (K+E1+L+N+X)           TOTAL ENERGY =         -104.30931906 A.U.
- (K)                  KINETIC ENERGY =           74.74407268 A.U.
- (E1=A-S+R)     ELECTROSTATIC ENERGY =          -86.86588347 A.U.
- (S)                           ESELF =           92.42162829 A.U.
- (R)                             ESR =            4.53297944 A.U.
- (L)    LOCAL PSEUDOPOTENTIAL ENERGY =          -71.64420384 A.U.
- (N)      N-L PSEUDOPOTENTIAL ENERGY =           10.96916896 A.U.
- (X)     EXCHANGE-CORRELATION ENERGY =          -31.51247339 A.U.
-          GRADIENT CORRECTION ENERGY =           -0.46642586 A.U.
- 
- ****************************************************************
-
-
+ TIME FOR MINIMUM STRUCTURE :                      32.075 SECONDS
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
  ================================================================
-                      BIG MEMORY ALLOCATIONS 
- XF                188082                VR                188082
- GNL               321280                SCR               507401
- CATOM             318090                CSCR              318090
- GDE               207470                PME               829880
- PSI               188082                ATWFR             401600
- ----------------------------------------------------------------
- [PEAK NUMBER   96]      PEAK MEMORY      4729176 =   37.8 MBytes
+ ==                END OF REFERENCE CALCULATION                ==
+ ==               GENERATE INITIAL GUESS VECTORS               ==
  ================================================================
+
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+
+ ITER  STATES  SUBSPACE    STATE     ENERGY     RESIDUAL     TCPU  
+    0     36      39         37    -0.053926    0.96E-02     0.32
+    1     36       6         37    -0.092874    0.96E-02     0.04
+    2     36       9         37    -0.095399    0.19E-02     0.03
+    3     36      12         37    -0.096435    0.11E-02     0.04
+    4     36      15         37    -0.097726    0.11E-02     0.04
+    5     36      18         37    -0.098183    0.90E-03     0.04
+    6     36      21         37    -0.098251    0.37E-03     0.04
+    7     36      24         37    -0.098263    0.33E-03     0.04
+    8     36      27         37    -0.098270    0.22E-03     0.04
+    9     36      30         37    -0.098274    0.24E-03     0.04
+   10     36      33         37    -0.098275    0.19E-03     0.04
+   11     36      36         37    -0.098276    0.16E-03     0.05
+   12     37      39         38    -0.048507    0.12E-03     0.05
+   13     37      40         38    -0.048508    0.72E-04     0.03
+   14     38       4         39    -0.026418    0.55E-04     0.02
+   15     38       4         39    -0.026420    0.39E-04     0.02
+   16     38       5         39    -0.026422    0.27E-04     0.02
+   17     38       6         39    -0.026422    0.34E-04     0.02
+   18     38       7         39    -0.026422    0.15E-04     0.02
+   19     38       8         39    -0.026423    0.12E-04     0.02
+   20     39       9         39    -0.026423    0.95E-05     0.02
+
+ RESTART INFORMATION WRITTEN ON FILE                  ./RESTART.1
+
+ EIGENVALUES(EV) AND OCCUPATION:
+       1    -26.3563909       2.00000000          2    -23.1770566       2.00000000
+       3    -20.6619657       2.00000000          4    -20.4563478       2.00000000
+       5    -19.3783557       2.00000000          6    -18.1990381       2.00000000
+       7    -17.9782927       2.00000000          8    -17.3660374       2.00000000
+       9    -15.8496230       2.00000000         10    -15.3513374       2.00000000
+      11    -14.4108891       2.00000000         12    -14.1239881       2.00000000
+      13    -13.3010306       2.00000000         14    -12.8080208       2.00000000
+      15    -12.6007223       2.00000000         16    -11.5336027       2.00000000
+      17    -11.1178187       2.00000000         18    -10.8964098       2.00000000
+      19    -10.5453187       2.00000000         20    -10.2428301       2.00000000
+      21    -10.1696334       2.00000000         22     -9.9042270       2.00000000
+      23     -9.7102924       2.00000000         24     -9.1332582       2.00000000
+      25     -9.0648868       2.00000000         26     -8.7925633       2.00000000
+      27     -8.3556624       2.00000000         28     -8.1605437       2.00000000
+      29     -8.0103076       2.00000000         30     -7.7444635       2.00000000
+      31     -7.6955829       2.00000000         32     -6.9657137       2.00000000
+      33     -6.0544510       2.00000000         34     -5.7928205       2.00000000
+      35     -5.6670241       2.00000000         36     -4.6244473       2.00000000
+      37     -2.6742226       0.00000000         38     -1.3199642       0.00000000
+      39     -0.7189958       0.00000000
+ CHEMICAL POTENTIAL =                             0.0000000000 EV
+ ================================================================
+ ==                END OF STATE INITIALIZATION                 ==
+ ================================================================
+
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ==                      SINGLET STATES                        ==
+ NUMBER OF STATES TO BE INITIALIZED                             3
+ TOTAL NUMBER OF TEST VECTORS                                   9
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ ================================================================
+ ==            DAVIDSON DIAGONALISATION OF TDDFT MATRIX        ==
+ ================================================================
+  ITER      STATES      SUBSPACE             RESIDUAL        TCPU
+     1           0             3       0.29481535E-01        3.05
+     2           0             6       0.94398472E-02        3.06
+     3           0             9       0.78862337E-02        3.08
+     4           0            12       0.99838183E-02        3.10
+     5           0            15       0.76276774E-02        3.14
+     6           0            18       0.34506393E-02        3.16
+     7           0            20       0.29407539E-02        2.19
+     8           0             6       0.18685955E-02        3.05
+     9           0             9       0.28787509E-02        3.07
+    10           0            12       0.25601682E-02        3.10
+    11           0            15       0.14850428E-02        3.13
+    12           0            18       0.10348273E-02        3.15
+    13           0            20       0.99677433E-03        2.18
+    14           0             6       0.30546967E-03        3.06
+    15           0             9       0.30458084E-03        3.07
+    16           0            12       0.29207569E-03        3.10
+    17           0            15       0.20136776E-03        3.13
+    18           0            18       0.21172874E-03        3.16
+    19           0            20       0.33724348E-03        2.18
+    20           0             6       0.81474311E-04        3.05
+    21           0             9       0.10224538E-03        3.07
+    22           0            12       0.74099511E-04        3.10
+    23           0            15       0.42791784E-04        3.12
+    24           0            18       0.27567795E-04        3.15
+    25           0            20       0.36407070E-04        2.18
+    26           1             6       0.15253023E-04        3.06
+    27           1             8       0.20410122E-04        2.05
+    28           1            10       0.28138919E-04        2.06
+    29           1            12       0.29341465E-04        2.08
+    30           1            14       0.37728875E-04        2.09
+    31           1            16       0.46242445E-04        2.11
+    32           1            18       0.62273032E-04        2.13
+    33           1            20       0.45516173E-04        2.18
+    34           1             5       0.20973445E-04        2.03
+    35           1             7       0.12735970E-04        2.04
+    36           1             9       0.77900240E-05        2.06
+    37           1            11       0.47502439E-05        2.07
+    38           1            13       0.37169687E-05        2.09
+    39           1            15       0.29618884E-05        2.10
+    40           1            17       0.24783202E-05        2.12
+    41           1            19       0.30104353E-05        2.14
+    42           1            20       0.30778143E-05        1.18
+    43           1             5       0.15020913E-05        2.04
+    44           1             7       0.13214011E-05        2.04
+    45           1             9       0.12200413E-05        2.06
+    46           1            11       0.11719402E-05        2.07
+    47           1            13       0.16121267E-05        2.08
+    48           1            15       0.29875767E-05        2.10
+    49           1            17       0.30329357E-05        2.12
+    50           1            19       0.34402083E-05        2.14
+    51           1            20       0.38235476E-05        1.17
+    52           1             5       0.17167708E-05        2.03
+    53           1             7       0.11567825E-05        2.05
+    54           1             9       0.72600925E-06        2.06
+    55           1            11       0.43383141E-06        2.07
+    56           1            13       0.32134270E-06        2.08
+    57           1            15       0.34126443E-06        2.10
+    58           2            17       0.30231794E-06        2.12
+    59           2            18       0.29801786E-06        1.10
+    60           2            19       0.32280744E-06        1.11
+    61           2            20       0.40788389E-06        1.17
+    62           2             4       0.17665218E-06        1.02
+    63           2             5       0.12617019E-06        1.02
+    64           2             6       0.12713415E-06        1.03
+    65           2             7       0.12938986E-06        1.03
+    66           2             8       0.18074945E-06        1.04
+    67           2             9       0.21669450E-06        1.04
+    68           2            10       0.26650079E-06        1.04
+    69           2            11       0.18475921E-06        1.05
+    70           2            12       0.21862296E-06        1.06
+    71           2            13       0.23296223E-06        1.06
+    72           2            14       0.27627545E-06        1.07
+    73           2            15       0.15581599E-06        1.08
+    74           2            16       0.11849179E-06        1.08
+    75           2            17       0.92826459E-07        1.10
+    76           2            18       0.99060053E-07        1.10
+    77           2            19       0.74473088E-07        1.11
+    78           2            20       0.48088534E-07        1.17
+    79           2             4       0.22635311E-07        1.02
+    80           2             5       0.12852100E-07        1.02
+    81           3             6       0.74675418E-08        1.02
+
+
+ STATE=  1                               EIGENVALUE=     2.441 eV
+          TRANSITION     0.874          HOMO -   0 --> LUMO +   0
+          TRANSITION     0.057          HOMO -   1 --> LUMO +   0
+          TRANSITION     0.012          HOMO -   0 --> LUMO +   2
+
+
+ STATE=  2                               EIGENVALUE=     3.339 eV
+          TRANSITION     0.469          HOMO -   2 --> LUMO +   0
+          TRANSITION     0.452          HOMO -   0 --> LUMO +   1
+          TRANSITION     0.035          HOMO -   1 --> LUMO +   0
+          TRANSITION     0.016          HOMO -   3 --> LUMO +   0
+
+
+ STATE=  3                               EIGENVALUE=     3.441 eV
+          TRANSITION     0.607          HOMO -   1 --> LUMO +   0
+          TRANSITION     0.209          HOMO -   3 --> LUMO +   0
+          TRANSITION     0.047          HOMO -   0 --> LUMO +   1
+          TRANSITION     0.039          HOMO -   0 --> LUMO +   2
+
+ CHKSUM(EIGENVALUES) =                                  9.2211 eV
+ ***     TD_OS| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+ LB:-------------------------------------------------------------
+ TD_OS_BERRY|            dE=   2.44051 eV            f=   0.04084
+ TD_OS_BERRY|            x:   0.05915  y:   0.18062  z:   0.55261
+ TD_OS_BERRY|            x:   0.05915  y:   0.18062  z:    0.55261
+ TD_OS_BERRY|            dE=   3.33914 eV            f=   0.00544
+ TD_OS_BERRY|            x:  -0.10581  y:   0.01601  z:  -0.14769
+ TD_OS_BERRY|            x:  -0.10581  y:   0.01601  z:   -0.14769
+ TD_OS_BERRY|            dE=   3.44144 eV            f=   0.01970
+ TD_OS_BERRY|            x:  -0.00025  y:  -0.09386  z:  -0.32868
+ TD_OS_BERRY|            x:  -0.00025  y:  -0.09386  z:   -0.32868
+ LB:-------------------------------------------------------------
+ ***   SPECTRA| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
+
+ RESTART INFORMATION WRITTEN ON FILE                  ./RESTART.1
 
 
  ****************************************************************
@@ -556,87 +706,79 @@
  ****************************************************************
  SUBROUTINE       CALLS             SELF TIME          TOTAL TIME
                             AVERAGE   MAXIMUM   AVERAGE   MAXIMUM
- CPMD                 1        0.16      0.20     17.00     17.01
- RWFOPT               1        0.03      0.04     16.38     16.41
- UPDWF               51        0.04      0.05     15.44     15.44
- FORCEDR             51        0.00      0.00     14.25     14.26
- FORCES              51        0.03      0.03     14.25     14.26
- INVFFTN           2084        7.61      7.69      7.61      7.69
- FORCES_a            51        0.01      0.02      7.55      7.56
- VPSI                75        0.77      0.79      6.60      6.60
- FWFFTN            1218        4.08      4.15      4.08      4.15
- RHOOFR              51        0.47      0.49      3.69      3.69
- VOFRHOB             52        0.04      0.04      3.46      3.47
- GCENER              52        0.72      0.74      1.59      1.59
- GRADEN              52        0.18      0.19      1.06      1.07
- ODIIS               51        0.92      0.95      0.94      0.96
- INITRUN              1        0.00      0.02      0.81      0.87
- RINITWF              1        0.00      0.01      0.81      0.85
- ATOMWF               1        0.01      0.01      0.80      0.84
- DIST_KSMAT           1        0.10      0.11      0.55      0.55
- VOFRHOT             52        0.03      0.03      0.43      0.44
- FORCES_b            51        0.01      0.02      0.37      0.37
- RINIT                1        0.00      0.03      0.26      0.31
- RGGEN                1        0.06      0.11      0.26      0.31
- ORTHO               51        0.00      0.02      0.22      0.23
- FNONLOC             75        0.17      0.19      0.21      0.23
- RGS                 51        0.18      0.20      0.21      0.23
- XCENER              52        0.19      0.20      0.19      0.20
- LOADPA               1        0.01      0.01      0.20      0.20
- RNLSM               75        0.00      0.02      0.17      0.18
- RNLSM1              75        0.15      0.16      0.17      0.18
- ATRHO                1        0.05      0.06      0.10      0.13
- OVLAP               51        0.04      0.06      0.10      0.11
- RINFORCE             1        0.00      0.01      0.09      0.11
- EICALC              52        0.10      0.10      0.10      0.10
- ZHWWF                1        0.02      0.05      0.08      0.09
- LOADPA_b             1        0.07      0.07      0.07      0.07
- FORMFN               4        0.05      0.07      0.05      0.07
- GLOSUM             340        0.04      0.07      0.04      0.07
- OVLAP_grps_a        51        0.06      0.06      0.06      0.06
- W_WFNIO              1        0.00      0.00      0.06      0.06
- NUMPW                1        0.05      0.05      0.05      0.05
- LOADPA_c             1        0.05      0.05      0.05      0.05
- ROTATE              51        0.05      0.05      0.05      0.05
- GORDER               1        0.04      0.04      0.04      0.04
- GIVE_SCR_RWFOP       1        0.00      0.01      0.02      0.04
- FNONLOC_grps_b      75        0.03      0.04      0.03      0.04
- WRWFNS               1        0.03      0.03      0.03      0.03
- SETBASIS             1        0.02      0.03      0.02      0.03
- NLIN                 4        0.03      0.03      0.03      0.03
- GIVE_SCR_INITR       2        0.00      0.01      0.02      0.03
- SUMFNL              75        0.02      0.03      0.02      0.03
- ODIIS_grps_b        51        0.02      0.03      0.02      0.03
- RGS_grps_b          51        0.02      0.03      0.02      0.03
- PPENER              52        0.02      0.03      0.02      0.03
- INITCLUST            1        0.01      0.01      0.02      0.03
- LOADPA_a             1        0.03      0.03      0.03      0.03
- GLOMAX              55        0.02      0.02      0.02      0.02
- GIVE_SCR_RINIT       3        0.01      0.02      0.01      0.02
- RGS_grps_a          51        0.02      0.02      0.02      0.02
- SCREENB              1        0.01      0.01      0.02      0.02
- FFTPRP               2        0.02      0.02      0.02      0.02
- GSDISORTHO           1        0.02      0.02      0.02      0.02
- OVLAP2              24        0.02      0.02      0.02      0.02
+ cpmd                 1        0.29      0.29    215.54    215.54
+ specpt               1        0.01      0.01    214.86    214.86
+ spectra              1        0.08      0.09    214.80    214.80
+ lr_diag              1        0.00      0.00    168.59    168.59
+ td_dav               1        7.81      7.82    168.59    168.59
+ LR_FORCE           159        0.12      0.13    159.46    159.47
+ INVFFTN          14796      106.72    114.32    106.72    114.32
+ FWFFTN            8515       61.90     66.76     61.90     66.76
+ vpsi               255        3.79      3.99     52.07     52.10
+ RHO1OFR            168        3.72      4.12     45.20     45.22
+ HPSI               180        0.08      0.09     40.24     40.27
+ VTDOFRHO1          168        0.34      0.36     38.79     39.01
+ vpsimt             168        2.26      2.39     38.13     38.29
+ DD_XC              168        0.28      0.31     34.62     34.85
+ vxc_calc           336        0.18      0.20     34.33     34.55
+ updwf               50        0.02      0.04     28.14     28.14
+ forcedr             51        0.00      0.00     27.21     27.23
+ forces              51        0.09      0.12     27.21     27.23
+ GCENER             388        5.58      5.97     19.01     19.06
+ GRADEN             388        1.41      1.50     14.60     15.17
+ forces_a            51        0.00      0.00     14.22     14.22
+ rscpot              51        0.08      0.13     14.16     14.16
+ zhwwf                3        4.17      4.18     12.53     12.54
+ rhoofr              52        0.63      0.68      7.45      7.45
+ vofrho              52        0.00      0.00      6.95      7.03
+ VOFRHOB             52        0.10      0.11      6.10      6.17
+ WR30WFN              3        4.47      4.47      4.47      4.47
+ w_wfnio              3        0.01      0.01      3.89      3.90
+ wrwfns               3        3.88      3.88      3.88      3.88
+ stcop                1        0.00      0.00      2.30      2.30
+ stcop1               1        0.00      0.01      2.30      2.30
+ xcener_new         388        0.12      0.15      1.39      1.56
+ mikeu              388        1.27      1.42      1.27      1.42
+ LR_ORTHO           318        0.04      0.05      1.33      1.35
+ odiis               50        1.23      1.26      1.26      1.29
+ fnonloc            255        0.72      0.75      1.06      1.11
+ ovlap              369        0.34      0.36      0.99      1.01
+ DAVIDSON             1        0.18      0.18      0.95      0.95
+ initrun              1        0.00      0.00      0.94      0.94
+ rinitwf              1        0.00      0.00      0.94      0.94
+ ATOMWF               1        0.01      0.01      0.94      0.94
+ VOFRHOT             52        0.03      0.03      0.86      0.86
+ dist_ksmat           1        0.04      0.05      0.67      0.67
+ ovlap_grps_a       369        0.65      0.66      0.65      0.66
+ td_os_raman_p        3        0.52      0.52      0.55      0.56
+ ROTATE             369        0.48      0.51      0.48      0.51
+ forces_b            51        0.05      0.09      0.49      0.49
+ rnlsm              255        0.00      0.00      0.35      0.36
+ rnlsm1             255        0.32      0.32      0.34      0.35
+ rinit                1        0.00      0.00      0.25      0.25
+ rggen                1        0.00      0.00      0.25      0.25
+ loadpa               1        0.01      0.01      0.24      0.24
+ EICALC              52        0.22      0.22      0.22      0.22
  ****************************************************************
 
-   ELAPSED TIME :    0 HOURS  0 MINUTES 17.12 SECONDS     
- ***      CPMD| SIZE OF THE PROGRAM IS   90316/ 448100 kBYTES ***
+       CPU TIME :    0 HOURS  3 MINUTES 22.71 SECONDS     
+   ELAPSED TIME :    0 HOURS  3 MINUTES 36.04 SECONDS     
+ ***      CPMD| SIZE OF THE PROGRAM IS NOT AVAILABLE          ***
 
- PROGRAM CPMD ENDED AT:   Tue Sep 15 13:36:58 2015  
+ PROGRAM CPMD ENDED AT:   2017-10-17 12:17:24.863   
 
  ================================================================
  = COMMUNICATION TASK  AVERAGE MESSAGE LENGTH  NUMBER OF CALLS  =
- = SEND/RECEIVE               24750. BYTES               1095.  =
- = BROADCAST                  14545. BYTES                415.  =
- = GLOBAL SUMMATION            1437. BYTES                894.  =
+ = SEND/RECEIVE                   0. BYTES                 15.  =
+ = BROADCAST                      0. BYTES                  1.  =
+ = GLOBAL SUMMATION               0. BYTES                  1.  =
  = GLOBAL MULTIPLICATION          0. BYTES                  1.  =
- = ALL TO ALL COMM           333168. BYTES               3302.  =
+ = ALL TO ALL COMM           621962. BYTES              23347.  =
  =                             PERFORMANCE          TOTAL TIME  =
- = SEND/RECEIVE             2914.064  MB/S           0.009 SEC  =
- = BROADCAST                1117.836  MB/S           0.005 SEC  =
- = GLOBAL SUMMATION           51.452  MB/S           0.100 SEC  =
+ = SEND/RECEIVE                0.000  MB/S           0.001 SEC  =
+ = BROADCAST                   0.000  MB/S           0.001 SEC  =
+ = GLOBAL SUMMATION            0.000  MB/S           0.001 SEC  =
  = GLOBAL MULTIPLICATION       0.000  MB/S           0.001 SEC  =
- = ALL TO ALL COMM          1325.286  MB/S           0.830 SEC  =
- = SYNCHRONISATION                                   0.021 SEC  =
+ = ALL TO ALL COMM           413.476  MB/S          35.119 SEC  =
+ = SYNCHRONISATION                                   0.012 SEC  =
  ================================================================

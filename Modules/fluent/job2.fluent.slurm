@@ -7,7 +7,7 @@
 #SBATCH --mem 4000
 #SBATCH --time 00:10:00
 
-module load ansys/17.1
+module load ansys
 
 echo "================================================================"
 date

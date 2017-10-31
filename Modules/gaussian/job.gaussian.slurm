@@ -3,10 +3,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=8000
-#SBATCH --time=0:10:00
+#SBATCH --time=00:10:00
 
 module purge
-slmodules -r deprecated
-module load gaussian/g09/D.01
+module load gaussian
 
 g09_run test.inp > test.out

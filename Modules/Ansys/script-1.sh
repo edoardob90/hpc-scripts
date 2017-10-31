@@ -7,7 +7,7 @@
 #SBATCH --time 01:00:00
  
 module purge
-module load ansys/17.1
+module load ansys
 
 echo "================================================================"
 echo "Started at `date`"

@@ -4,7 +4,7 @@ To compile the ring.* source files:
 
 Then, either:
 
-  module load intel intelmpi
+  module load intel intel-mpi
 
   mpiicc -o ring_c ring.c
   mpiicpc -o ring_cxx ring.cxx
@@ -43,7 +43,7 @@ salloc: Granted job allocation 43196
 
 > source /ssoft/spack/bin/slmodules.sh
 
-> module load intel intelmpi
+> module load intel intel-mpi
 
 # or
 # module load gcc mvapich2
@@ -78,41 +78,43 @@ Submitted batch job 1028026
 result on slurm-1028026.out file should look like this:
 
 
-STARTING AT ven. juil. 1 13:09:27 CEST 2016
+STARTING AT jeu. oct. 12 16:04:54 CEST 2017
 
 
 Currently Loaded Modules:
-  1) intel/16.0.3   2) intelmpi/5.1.3
+  1) intel/17.0.2   2) intel-mpi/2017.2.174
+
+ 
 
 
 --> EXECUTABLE = ./ring_c
 
 --> ./ring_c depends on the following dynamic libraries:
-	linux-vdso.so.1 =>  (0x00007fff07bff000)
-	libmpifort.so.12 => /ssoft/spack/external/intel/2016/compilers_and_libraries_2016.3.210/linux/mpi/intel64/lib/libmpifort.so.12 (0x00007f8313a24000)
-	libmpi.so.12 => /ssoft/spack/external/intel/2016/compilers_and_libraries_2016.3.210/linux/mpi/intel64/lib/release_mt/libmpi.so.12 (0x00007f8313255000)
-	libdl.so.2 => /lib64/libdl.so.2 (0x0000003be3e00000)
-	librt.so.1 => /lib64/librt.so.1 (0x0000003be4200000)
-	libpthread.so.0 => /lib64/libpthread.so.0 (0x0000003be3a00000)
-	libm.so.6 => /lib64/libm.so.6 (0x0000003968600000)
-	libgcc_s.so.1 => /ssoft/spack/lafnetscha/opt/spack/x86_E5v1_IntelIB/gcc-4.4.7/gcc-4.9.3-2gys3tu6lq35ge6woeixfo4tfz5nnvzn/lib64/libgcc_s.so.1 (0x00007f831302f000)
-	libc.so.6 => /lib64/libc.so.6 (0x0000003be3600000)
-	/lib64/ld-linux-x86-64.so.2 (0x0000003be3200000)
+	linux-vdso.so.1 =>  (0x00007ffde7a72000)
+	libmpifort.so.12 => /ssoft/spack/external/intel/2017/impi/2017.2.174/lib64/libmpifort.so.12 (0x00007f6ca6e64000)
+	libmpi.so.12 => /ssoft/spack/external/intel/2017/impi/2017.2.174/lib64/libmpi.so.12 (0x00007f6ca6154000)
+	libdl.so.2 => /usr/lib64/libdl.so.2 (0x00007f6ca5f3e000)
+	librt.so.1 => /usr/lib64/librt.so.1 (0x00007f6ca5d36000)
+	libpthread.so.0 => /usr/lib64/libpthread.so.0 (0x00007f6ca5b1a000)
+	libm.so.6 => /usr/lib64/libm.so.6 (0x00007f6ca5817000)
+	libgcc_s.so.1 => /ssoft/spack/cornalin/rc1/opt/spack/linux-rhel6-x86_E5v1_IntelIB/gcc-4.4.7/gcc-5.4.0-m2dusvculeorwfjrpouxaiha4v2nkusq/lib64/libgcc_s.so.1 (0x00007f6ca5600000)
+	libc.so.6 => /usr/lib64/libc.so.6 (0x00007f6ca523f000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007f6ca720f000)
 
-Hello, my rank is 0 among 4 tasks on machine b181, with my_var = 0 initially
-Hello, my rank is 1 among 4 tasks on machine b181, with my_var = 10 initially
-Hello, my rank is 2 among 4 tasks on machine b181, with my_var = 20 initially
-Hello, my rank is 3 among 4 tasks on machine b181, with my_var = 30 initially
+Hello, my rank is 0 among 4 tasks on machine f174, with my_var = 0 initially
+Hello, my rank is 2 among 4 tasks on machine f174, with my_var = 20 initially
+Hello, my rank is 1 among 4 tasks on machine f174, with my_var = 10 initially
+Hello, my rank is 3 among 4 tasks on machine f174, with my_var = 30 initially
 --- BARRIER! ---
-b181: rank 1 sends to 2 and receives from 0, my_var = 10
-b181: rank 2 sends to 3 and receives from 1, my_var = 20
-b181: rank 3 sends to 0 and receives from 2, my_var = 30
-b181: rank 0 sends to 1 and receives from 3, my_var = 0
+f174: rank 0 sends to 1 and receives from 3, my_var = 0
+f174: rank 2 sends to 3 and receives from 1, my_var = 20
+f174: rank 1 sends to 2 and receives from 0, my_var = 10
+f174: rank 3 sends to 0 and receives from 2, my_var = 30
 --- BARRIER! ---
-Hello, my rank is 0 among 4 tasks on machine b181, with my_var = 30 finally
-Hello, my rank is 1 among 4 tasks on machine b181, with my_var = 0 finally
-Hello, my rank is 2 among 4 tasks on machine b181, with my_var = 10 finally
-Hello, my rank is 3 among 4 tasks on machine b181, with my_var = 20 finally
+Hello, my rank is 0 among 4 tasks on machine f174, with my_var = 30 finally
+Hello, my rank is 1 among 4 tasks on machine f174, with my_var = 0 finally
+Hello, my rank is 2 among 4 tasks on machine f174, with my_var = 10 finally
+Hello, my rank is 3 among 4 tasks on machine f174, with my_var = 20 finally
 
-FINISHED at ven. juil. 1 13:09:29 CEST 2016
+FINISHED at jeu. oct. 12 16:04:56 CEST 2017
 

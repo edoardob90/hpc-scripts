@@ -8,8 +8,8 @@
 echo STARTING AT `date`
 
 module purge 
-module load intel mkl
-module load R
+module load intel intel-mkl
+module load r
 srun R CMD BATCH ./snowfall.R
 
 srun env

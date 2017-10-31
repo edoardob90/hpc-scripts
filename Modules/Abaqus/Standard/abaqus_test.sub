@@ -5,6 +5,8 @@
 #SBATCH --cpus-per-task 8
 #SBATCH --time 00:10:00
  
+source /ssoft/spack/bin/slmodules.sh -r deprecated
+
 module purge
 module load intel intelmpi abaqus
 

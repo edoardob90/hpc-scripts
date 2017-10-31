@@ -16,7 +16,7 @@ source /ssoft/spack/bin/slmodules.sh
 
 module purge 
 # load the compiler and MPI variant used to generate the executable
-module load intel intelmpi
+module load intel intel-mpi
 
 # compiled with mpiicc hello_mpi.c -o hello_mpi
 

@@ -4,5 +4,11 @@
 #SBATCH --ntasks-per-node=16
 #SBATCH --mem=20000
 #SBATCH --time=00:05:00
-module load cpmd/3.15.3/intel-15.0.0
-srun $CPMD test.inp &> test.out
+
+module purge
+module load intel intel-mpi intel-mkl cpmd
+
+# or alternatively:
+# module load gcc mvapich2 openblas cpmd
+
+srun cpmd.x test.inp &> test.out
