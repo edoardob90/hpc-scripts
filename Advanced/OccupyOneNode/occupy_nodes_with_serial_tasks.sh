@@ -37,7 +37,7 @@ module load chem2020
 NR_TASKS=$(echo $SLURM_TASKS_PER_NODE | sed 's/\([0-9]\+\)(x\([0-9]\+\))/\1*\2/' | bc)
 
 # execute the 300 tasks, NR_TASKS tasks at a time, redirecting the
-# output to a 
+# output to a task-specific output file
 cat <(seq -w 1 300) | \
     xargs -I{} -max-procs=$NR_TASKS \
     bash -c "srun -N 1 -n 1 --exclusive chem2020.x -in myinput.{} -out myout.{} > ${SLURM_SUBMIT_DIR}/slurm-${SLURM_JOBID}.{}.out 2>&1"
