@@ -1,17 +1,20 @@
 
-script-1.sh runs the Distributed Memory Parallel
-version of Ansys on Fidis with 1 node and 28 cores
+script-1.sh runs the Distributed Memory Parallel version of Ansys on Fidis with 1 node and 28 cores
 
 Submit the job with the command:
+
 sbatch script-1.sh
 
-script-2.sh runs the Distributed Memory Parallel
-version of Ansys on Fidis with 2 node and 56 cores
+script-2.sh runs the Distributed Memory Parallel version of Ansys on Fidis with 2 node and 56 cores
 
 To use more than 1 node like in the second example, put the following lines in .bashrc located in your home folder
+
 module purge
+
 module load ansys
+
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/ssoft/spack/external/ansys/17.1/v171/Electronics/Linux64/defer:/ssoft/spack/external/ansys/17.1/v171/commonfiles/MainWin/linx64/mw/lib-amd64_linux/X11SLES
 
 Submit the job with the command:
+
 sbatch script-2.sh
