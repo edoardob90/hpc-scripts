@@ -1,0 +1,16 @@
+
+comsol_run_script.sh runs the Distributed Memory Parallel version of Comsol on Deneb with 2 node and 32 cores
+
+To use more than 1 node like in the example, put the following lines in .bashrc located in your home folder
+
+module purge
+
+module load comsol
+
+Submit the job with the command:
+
+sbatch comsol_run_script.sh
+
+Note:
+
+The input .mph file needs to be prepared by interactively running COMSOL and setting up the study without click "compute". After setting up your model but before submitting it to the batch go to the study case and click ""show default solver" and "Get Initial Value". By default this will create the default plots as well - just empty in the section of results. Then, save the .mph file, and submit the simulation in the batch mode at the cluster. After the job finished, open the saved output .mph file in COMSOL to see the results.
