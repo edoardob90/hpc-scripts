@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -l
 #SBATCH --job-name ansys-tutor
 #SBATCH --nodes 2
 #SBATCH --ntasks 56

@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -l
 #SBATCH --job-name oommf
 #SBATCH --nodes 1
 #SBATCH --ntasks 1
