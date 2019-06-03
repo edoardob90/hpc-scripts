@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jobCommands version="3" name="Custom Cluster Commands">
+  <environment>
+    <env name="RSM_HPC_PARSE_MARKER">START</env>
+  </environment>
+  <submit>
+    <precommands>
+      <command name="memory">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmMemory.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>%RSM_HPC_MEMORY%</arg>
+          <arg>%RSM_HPC_CORES%</arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_PBS_MEMORY_AMOUNT</variableName>
+        </outputs>
+        <condition>
+          <env name="RSM_HPC_MEMORY">ANY_VALUE</env>
+          <!--Important : We only need to run this pre command for non-distributed jobs because of a difference in how pbs wants memory reservation to be formatted-->
+          <env name="RSM_HPC_DISTRIBUTED">FALSE</env>
+        </condition>
+      </command>
+    </precommands>
+    <primaryCommand name="submit">
+      <application>
+        <app>sbatch</app>
+      </application>
+      <arguments>
+        <arg>
+          <value>-p %RSM_HPC_QUEUE%</value>
+          <condition>
+            <env name="RSM_HPC_QUEUE">ANY_VALUE</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--ntasks=%RSM_HPC_CORES%</value>
+          <condition>
+            <env name="RSM_HPC_DISTRIBUTED">TRUE</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--ntasks=1 --cpus-per-task=%RSM_HPC_CORES%</value>
+          <condition>
+            <env name="RSM_HPC_DISTRIBUTED">FALSE</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--mem-per-cpu=%RSM_HPC_MEMORY%</value>
+          <condition>
+            <env name="RSM_HPC_MEMORY">ANY_VALUE</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--time=01:00:00</value>
+          <condition>
+            <env name="RSM_HPC_QUEUE">debug</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--time=24:00:00</value>
+          <condition>
+            <env name="RSM_HPC_QUEUE">parallel</env>
+          </condition>
+        </arg>
+        <arg>
+          <value>--exclusive</value>
+          <condition>
+            <env name="RSM_HPC_NODE_EXCLUSIVE">TRUE</env>
+          </condition>
+        </arg>
+        <arg>--job-name="%RSM_HPC_JOBNAME%" %RSM_HPC_NATIVEOPTIONS% --export=ALL --output="%RSM_HPC_STAGING%/%RSM_HPC_STDOUTFILE%" --error="%RSM_HPC_STAGING%/%RSM_HPC_STDERRFILE%" "%RSM_HPC_STAGING%/%RSM_HPC_COMMAND%"</arg>
+      </arguments>
+    </primaryCommand>
+    <postcommands>
+      <command name="parseSubmit">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-submit</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_JOBID</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </submit>
+  <cancel>
+    <primaryCommand name="cancel">
+      <application>
+        <app>scancel</app>
+      </application>
+      <arguments>
+        <arg>%RSM_HPC_JOBID%</arg>
+      </arguments>
+    </primaryCommand>
+  </cancel>
+  <queryStatus>
+    <primaryCommand name="queryStatus">
+      <properties>
+        <property name="SquelchErrors">true</property>
+      </properties>
+      <application>
+        <app>squeue</app>
+      </application>
+      <arguments>
+        <arg>-j %RSM_HPC_JOBID%</arg>
+      </arguments>
+    </primaryCommand>
+    <postcommands>
+      <command name="parseStatus">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+          <property name="AlwaysRunCommand">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-status</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_STATUS</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </queryStatus>
+  <queryQueues>
+    <primaryCommand name="queryQueues">
+      <application>
+        <app>sinfo</app>
+      </application>
+      <arguments>
+        <arg>-a</arg>
+      </arguments>
+    </primaryCommand>
+    <postcommands>
+      <command name="checkQueueExists">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-queues</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_QUEUE_DEFINED</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </queryQueues>
+  <getAllQueues>
+    <primaryCommand name="getAllQueues">
+      <application>
+        <app>sinfo</app>
+      </application>
+      <arguments>
+        <arg>-a</arg>
+      </arguments>
+    </primaryCommand>
+    <postcommands>
+      <command name="parseQueueList">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-allqueues</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_GENERIC</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </getAllQueues>
+  <getAllStatus>
+    <primaryCommand name="getAllStatus">
+      <application>
+        <app>
+          <value>squeue</value>
+        </app>
+      </application>
+    </primaryCommand>
+    <postcommands>
+      <command name="parseAllStatus">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-allstatus</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_GENERIC</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </getAllStatus>
+  <getLoad>
+    <primaryCommand name="getClusterLoad">
+      <application>
+        <app>sinfo</app>
+      </application>
+      <arguments>
+        <arg>
+          <value>-a</value>
+        </arg>
+      </arguments>
+    </primaryCommand>
+    <postcommands>
+      <command name="parseClusterLoad">
+        <properties>
+          <property name="MustRemainLocal">true</property>
+        </properties>
+        <application>
+          <pythonapp>%RSM_HPC_SCRIPTS_DIRECTORY_LOCAL%/slurmParsing.py</pythonapp>
+        </application>
+        <arguments>
+          <arg>-load</arg>
+          <arg>
+            <value>%RSM_HPC_PARSE_MARKER%</value>
+            <condition>
+              <env name="RSM_HPC_PARSE_MARKER">ANY_VALUE</env>
+            </condition>
+          </arg>
+        </arguments>
+        <outputs>
+          <variableName>RSM_HPC_OUTPUT_GENERIC</variableName>
+        </outputs>
+      </command>
+    </postcommands>
+  </getLoad>
+</jobCommands>

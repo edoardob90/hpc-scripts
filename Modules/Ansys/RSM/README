@@ -1,0 +1,16 @@
+The two custom files for SLURM integration are needed to use the Remote Solve Manager (RSM) in ANSYS Workbench to submit ANSYS jobs to the SCITAS clusters (examples include updating design points and parameter sweeping in various ANSYS applications). They should be copied by administrator to the corresponding directories as follows:
+
+/ssoft/spack/external/ansys/19.2/v192/RSM/Config/xml/hpc_commands_SLURM.xml
+
+/ssoft/spack/external/ansys/19.2/v192/RSM/Config/scripts/slurmParsing.py
+
+Also, in the file /ssoft/spack/external/ansys/19.2/v192/RSM/Config/xml/jobConfiguration.xml, the following lines should be added.
+
+<keyword name="SLURM">
+
+<hpcCommands name="hpc_commands_SLURM.xml"/>
+
+</keyword>
+
+To set up and use ANSYS RSM, see the article
+https://scitasadm.epfl.ch/confluence/display/DOC/Using+ANSYS+with+Remote+Solver+Manager

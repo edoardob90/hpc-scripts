@@ -13,8 +13,12 @@ module purge
 
 module load ansys
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/ssoft/spack/external/ansys/17.1/v171/Electronics/Linux64/defer:/ssoft/spack/external/ansys/17.1/v171/commonfiles/MainWin/linx64/mw/lib-amd64_linux/X11SLES
-
 Submit the job with the command:
 
 sbatch script-2.sh
+
+Note: For the older version ANSYS 17.1, the following path setting may be needed
+for module like mechanical
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/ssoft/spack/external/ansys/17.1/v171/Electronics/Linux64/defer:/ssoft/spack/external/ansys/17.1/v171/commonfiles/MainWin/linx64/mw/lib-amd64_linux/X11SLES
+for runwb2
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/ssoft/spack/external/ansys/17.1/v171/Framework/bin/Linux64/Mesa
