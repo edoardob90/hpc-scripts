@@ -8,7 +8,7 @@
 source /ssoft/spack/bin/slmodules.sh -r deprecated
 
 module purge
-module load intel intelmpi abaqus
+module load intel intel-mpi abaqus
 
 # Here is an example with 1 node and 8 cores
 # (see the 'Explicit' directory for a multi-node example)

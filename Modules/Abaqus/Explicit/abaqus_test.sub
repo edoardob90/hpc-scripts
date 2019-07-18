@@ -8,7 +8,7 @@
 source /ssoft/spack/bin/slmodules.sh -r deprecated
 
 module purge
-module load intel intelmpi abaqus
+module load intel intel-mpi abaqus
 
 # Generating the node list from the SLURM variables
 cpus_per_node=$(echo $SLURM_TASKS_PER_NODE | sed -e 's/(x[0-9])//')
