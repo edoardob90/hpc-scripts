@@ -7,7 +7,7 @@
 
 source /ssoft/spack/bin/slmodules.sh -r deprecated
 
-module load intel intel-mpi mkl molpro
+module load intel intel-mpi intel-mkl molpro
 molpro test_big.inp
 joberror=$?
 
