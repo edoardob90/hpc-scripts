@@ -4,5 +4,5 @@
 #SBATCH --ntasks-per-node=8
 #SBATCH --mem=19000
 #SBATCH --time=0:20:00
-module load adf/2014.4/intel
+module load adf
 adf < test.inp > test.out
