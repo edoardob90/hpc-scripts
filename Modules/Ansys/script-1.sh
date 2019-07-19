@@ -16,7 +16,7 @@ echo "Started at `date`"
 echo "================================================================"
 echo ""
 
-ansys192 -dis -b -np ${SLURM_NTASKS} -j ${SLURM_JOB_NAME} -i tutor1_carrier_linux.inp -o results.out
+ansys171 -dis -b -np ${SLURM_NTASKS} -j ${SLURM_JOB_NAME} -i tutor1_carrier_linux.inp -o results.out
 
 STATUS=$?
 
