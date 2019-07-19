@@ -5,6 +5,8 @@
 #SBATCH --ntasks-per-node=16
 #SBATCH --time=00:05:00
 
+slmodules -r deprecated
+
 module purge
 module load intel intel-mpi intel-mkl cp2k
 
