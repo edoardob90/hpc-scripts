@@ -9,7 +9,7 @@
 echo STARTING AT `date`
 
 module purge 
-module load intel intel-mkl
+module load gcc openblas/0.3.6-openmp
 module load r
 srun R CMD BATCH ./easyscript.R
  
