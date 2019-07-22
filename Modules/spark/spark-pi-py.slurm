@@ -6,6 +6,9 @@
 
 set -x
  
+slmodules -r deprecated
+
+module purge
 module load spark
  
 MASTER=$(hostname)
