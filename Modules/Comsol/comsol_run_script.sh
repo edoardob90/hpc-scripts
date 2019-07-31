@@ -1,12 +1,8 @@
 #!/bin/bash -l
 
 #SBATCH --nodes 2
-
-#SBATCH --ntasks 4
-
-#SBATCH --cpus-per-task 8
-
 #SBATCH --ntasks-per-node 2
+#SBATCH --cpus-per-task 8
 
 #SBATCH --time 01:00:00
 
@@ -21,6 +17,10 @@ module load comsol
 
 ulimit -s unlimited
 ulimit -c unlimited
+
+if [ -z "${SLURM_NTASKS_PER_NODE}" ]; then
+    SLURM_NTASKS_PER_NODE=$(( $SLURM_NTASKS / $SLURM_NNODES ))
+fi
 
 echo " ****** START OF JOB ******"
 echo $SLURM_NTASKS
