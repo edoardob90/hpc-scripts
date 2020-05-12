@@ -43,8 +43,9 @@ and relaunch this batch script.
 == Second example - job2.fluent.slurm ==
 You are trying to use the second example, but you have an error such as: 
 
-  //Host key verification failed.//
-  //Error: It seems ssh is trying to verify authenticity of [node's hostname]. Please resolve it and try again!//
+//Host key verification failed.//
+
+//Error: It seems ssh is trying to verify authenticity of [node's hostname]. Please resolve it and try again!//
 
 == Workaround: ==
 From your home directory, change directory to `.ssh`
@@ -73,5 +74,6 @@ Host *
 
 
 
-{nav Author: Jean-Luc Desbiolles (2015-10-27)}    
+{nav Author: Jean-Luc Desbiolles (2015-10-27)}
+
 {nav Update: Jean-Claude De Giorgi (2020-05-11)}
