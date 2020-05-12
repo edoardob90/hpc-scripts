@@ -10,8 +10,8 @@ fluent-test.jou
 
 
 = Output files: =
-fluent-test.cas (its content changes)
-fluent-test.dat
+* fluent-test.cas (its content changes)
+* fluent-test.dat
 
   
 = Comments: =
@@ -29,10 +29,10 @@ The result of the job give an error such as:
 ///var/spool/slurmd/job4274455/slurm_script: line 29: fluent: command not found//
 
 == Workaround ==
-# You don't belong to the **ansys-users** group.
+* You don't belong to the **ansys-users** group.
 Please ask to be added to [this group ](https://groups.epfl.ch/viewgroup?groupid=S00058)
-# You do belong to this group. In that case, try this:
-```newgrp ansys-users
+* You do belong to this group. In that case, try this:
+  newgrp ansys-users
 and relaunch this batch script.
 
 
