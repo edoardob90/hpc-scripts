@@ -36,11 +36,13 @@ Please ask to be added to [this group ](https://groups.epfl.ch/viewgroup?groupid
 * You do belong to this group. In that case, try this command:
 
 `newgrp ansys-users`
+
 and relaunch this batch script.
 
 
 == Second example - job2.fluent.slurm ==
 You are trying to use the second example, but you have an error such as: 
+
 COUNTEREXAMPLE
 //Host key verification failed.//
 
@@ -73,5 +75,5 @@ Host *
 
 
 
-{nav Author: Jean-Luc Desbiolles (2015-10-27)}
+{nav Author: Jean-Luc Desbiolles (2015-10-27)}    
 {nav Update: Jean-Claude De Giorgi (2020-05-11)}
