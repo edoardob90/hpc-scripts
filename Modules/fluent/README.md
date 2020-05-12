@@ -14,7 +14,7 @@ fluent-test.jou
 fluent-test.cas (its content changes)
 fluent-test.dat
 
-
+<br>
 ## Comments:
 * The input file (here fluent-test.jou) contains the appropriate Fluent text commands (TUI).
 * The case file (here fluent-test.cas) should have been created through interactive run of Fluent on a PC or on the front-end of the cluster.
@@ -26,15 +26,15 @@ fluent-test.dat
 Here is a little workaround in case you are experiencing some common errors.
 
 ## First example - job.fluent.slurm
-The result of the job give an error such as:  
-*/var/spool/slurmd/job4274455/slurm_script: line 29: fluent: command not found*
+The result of the job give an error such as:<br>
+_/var/spool/slurmd/job4274455/slurm\_script: line 29: fluent: command not found_
 
 **Workaround**
 1. You don't belong to the *ansys-users* group.
 Please ask to be added to [this group ](https://groups.epfl.ch/viewgroup?groupid=S00058)
 2. You do belong to this group. In that case, try this:
-`newgrp ansys-users`  
-and relaunch this batch script.
+	`newgrp ansys-users`
+	and relaunch this batch script.
 
 
 ## Second example - job2.fluent.slurm
@@ -46,14 +46,14 @@ Error: It seems ssh is trying to verify authenticity of h193. Please resolve it 
 From your home directory, change to `.ssh`
 
 Type the following command:
-`ssh-keygen -t rsa`
+	`ssh-keygen -t rsa`
 
-Do not enter any passphrase!
+**Do not enter any passphrase!**
 
-You'll get a id_rsa and id_rsa.pub files.
+You'll get a _id\_rsa_ and _id\_rsa.pub_ files.
 
-Add the content of the *id_rsa.pub* into *authorized_keys* file
-(if it doesn't exit, just create it: `touch authorized_keys`).
+Add the content of the _id\_rsa.pub_ into _authorized\_keys_ file
+	(if it doesn't exit, just create it: `touch authorized_keys`).
 
 Then, create a config file (`vi config`) and add the following:
 ```
@@ -65,4 +65,4 @@ Host *
 
 
 Author: Jean-Luc Desbiolles (2015-10-27)
-Update: Jean-Claude De Giorgi (2020-05-11)
+	Update: Jean-Claude De Giorgi (2020-05-11)
