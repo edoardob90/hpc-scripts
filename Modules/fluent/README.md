@@ -33,15 +33,15 @@ The result of the job gives an error such as:
 == Workaround ==
 * You don't belong to the **ansys-users** group.
 Please ask to be added to [this group ](https://groups.epfl.ch/viewgroup?groupid=S00058)
-* You do belong to this group. In that case, try this:
+* You do belong to this group. In that case, try this command:
 
-  newgrp ansys-users
+`newgrp ansys-users`
 and relaunch this batch script.
 
 
 == Second example - job2.fluent.slurm ==
 You are trying to use the second example, but you have an error such as: 
-
+COUNTEREXAMPLE
 //Host key verification failed.//
 
 //Error: It seems ssh is trying to verify authenticity of [node's hostname]. Please resolve it and try again!//
@@ -73,6 +73,5 @@ Host *
 
 
 
-Author: Jean-Luc Desbiolles (2015-10-27)
-
-Update: Jean-Claude De Giorgi (2020-05-11)
+{nav Author: Jean-Luc Desbiolles (2015-10-27)}
+{nav Update: Jean-Claude De Giorgi (2020-05-11)}
