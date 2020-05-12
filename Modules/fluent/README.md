@@ -1,7 +1,7 @@
 = How to use these examples =
 
 Submit the job with the command:
-```sbatch job.fluent.slurm
+  sbatch job.fluent.slurm
 
 
 = Input files: =
@@ -41,11 +41,11 @@ You are trying to use the second example, but you have an error such as:
 //Host key verification failed.//
 //Error: It seems ssh is trying to verify authenticity of [node's hostname]. Please resolve it and try again!//
 
-**Workaround:**
+== Workaround: ==
 From your home directory, change directory to `.ssh`
 
 Type the following command:
-	`ssh-keygen -t rsa`
+  ssh-keygen -t rsa
 
 IMPORTANT: Do not enter any passphrase!
 
@@ -53,10 +53,10 @@ You'll get a //id_rsa// and //id_rsa.pub// files.
 
 Add the content of the //id_rsa.pub// into //authorized_keys// file.
 NOTE: if it doesn't exit, just create it as follow:
-```touch authorized_keys
+  touch authorized_keys
 
 Then, create a config file:
-```vi config
+  vi config
 
 and add the following:
 ```
@@ -67,5 +67,5 @@ Host *
 
 
 
-Author: Jean-Luc Desbiolles (2015-10-27)//
+Author: Jean-Luc Desbiolles (2015-10-27)/
 Update: Jean-Claude De Giorgi (2020-05-11)
