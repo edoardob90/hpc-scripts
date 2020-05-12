@@ -25,20 +25,20 @@ fluent-test.jou
 Here is a little workaround in case you are experiencing some common errors.
 
 == First example - job.fluent.slurm ==
-The result of the job give an error such as:
+The result of the job gives an error such as: \\
 ///var/spool/slurmd/job4274455/slurm_script: line 29: fluent: command not found//
 
 == Workaround ==
 * You don't belong to the **ansys-users** group.
 Please ask to be added to [this group ](https://groups.epfl.ch/viewgroup?groupid=S00058)
-* You do belong to this group. In that case, try this:
+* You do belong to this group. In that case, try this: \\
   newgrp ansys-users
 and relaunch this batch script.
 
 
 == Second example - job2.fluent.slurm ==
-You are trying to use the second example, but you have an error such as:
-//Host key verification failed.//
+You are trying to use the second example, but you have an error such as: \\
+//Host key verification failed.// \\
 //Error: It seems ssh is trying to verify authenticity of [node's hostname]. Please resolve it and try again!//
 
 == Workaround: ==
@@ -52,7 +52,7 @@ IMPORTANT: Do not enter any passphrase!
 You'll get a //id_rsa// and //id_rsa.pub// files.
 
 Add the content of the //id_rsa.pub// into //authorized_keys// file.
-NOTE: if it doesn't exit, just create it as follow:
+NOTE: if authorized_keys file doesn't exit, just create it as follow: \\
   touch authorized_keys
 
 Then, create a config file:
@@ -67,5 +67,5 @@ Host *
 
 
 
-Author: Jean-Luc Desbiolles (2015-10-27)/
+Author: Jean-Luc Desbiolles (2015-10-27) \
 Update: Jean-Claude De Giorgi (2020-05-11)
